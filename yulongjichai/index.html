@@ -1,0 +1,1115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>御龙记 柴文网-国风神话版柴文卷宗与故事档案</title>
+<meta name="description" content="御龙记 柴文网收录国风神话题材的柴文卷宗、人物列传、山海异闻与版本文献考据。按篇目、期数、批注层级整理，含入门读法、深度考据与读者评议，方便对照检索。">
+<meta name="keywords" content="御龙记 柴文网">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2a3a'/%3E%3Cpath d='M16 44c6-14 12-20 22-22 4-1 8 1 9 5 1 4-2 7-6 7-3 0-5-2-5-4' fill='none' stroke='%23d9a441' stroke-width='3.5' stroke-linecap='round'/%3E%3Ccircle cx='45' cy='20' r='2.4' fill='%23d9a441'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b2430;
+  --ink-soft:#3c4a5c;
+  --muted:#6a7889;
+  --paper:#f6f2e9;
+  --paper-2:#efe8da;
+  --card:#fffdf8;
+  --line:#ddd3c1;
+  --line-soft:#e8e0d1;
+  --gold:#a8761f;
+  --gold-2:#d9a441;
+  --cinnabar:#a8382c;
+  --jade:#2f6b5f;
+  --shadow:0 2px 8px rgba(27,36,48,.06),0 12px 28px rgba(27,36,48,.05);
+  --shadow-hover:0 4px 12px rgba(27,36,48,.1),0 16px 34px rgba(27,36,48,.08);
+  --r-sm:6px;
+  --r-md:10px;
+  --r-lg:16px;
+  --s1:8px; --s2:14px; --s3:22px; --s4:34px; --s5:52px;
+  --f-serif:"Songti SC","STSong","Noto Serif SC",Georgia,"SimSun",serif;
+  --f-sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --stick:96px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--stick);}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-sans);
+  font-size:16px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.serif{font-family:var(--f-serif);}
+a{color:var(--ink-soft);text-decoration:none;}
+a:hover{color:var(--cinnabar);}
+img{max-width:100%;display:block;}
+:focus-visible{outline:3px solid var(--gold-2);outline-offset:2px;border-radius:3px;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+/* ---------- 吸顶公告 ---------- */
+.notice{
+  background:var(--ink);
+  color:#e9e2d3;
+  font-size:14px;
+  letter-spacing:.02em;
+}
+.notice .wrap{display:flex;gap:14px;align-items:center;padding-top:9px;padding-bottom:9px;flex-wrap:wrap;}
+.notice .badge{
+  background:var(--gold-2);color:#2a1c05;font-weight:700;
+  padding:1px 9px;border-radius:3px;font-size:12.5px;letter-spacing:.08em;white-space:nowrap;
+}
+.notice a{color:var(--gold-2);border-bottom:1px dashed rgba(217,164,65,.5);}
+.notice a:hover{color:#fff;}
+
+/* ---------- 页头 ---------- */
+header.site{
+  background:rgba(246,242,233,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:60;
+}
+header.site .wrap{display:flex;align-items:center;gap:26px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:11px;}
+.brand svg{width:38px;height:38px;flex:none;}
+.brand .names{display:flex;flex-direction:column;line-height:1.15;}
+.brand .names b{font-family:var(--f-serif);font-size:20px;letter-spacing:.06em;}
+.brand .names span{font-size:11.5px;color:var(--muted);letter-spacing:.22em;}
+nav.main{display:flex;gap:4px;flex-wrap:wrap;flex:1;}
+nav.main a{
+  font-size:14.5px;padding:7px 11px;border-radius:var(--r-sm);color:var(--ink-soft);white-space:nowrap;
+  transition:background .18s,color .18s;
+}
+nav.main a:hover,nav.main a[aria-current="true"]{background:var(--paper-2);color:var(--cinnabar);}
+.head-tools{display:flex;align-items:center;gap:10px;}
+.search{display:flex;align-items:center;border:1px solid var(--line);background:var(--card);border-radius:var(--r-sm);overflow:hidden;}
+.search input{
+  border:0;background:transparent;padding:8px 10px;font-size:14px;width:150px;
+  font-family:var(--f-sans);color:var(--ink);
+}
+.search input:focus{outline:none;}
+.search button{
+  border:0;background:var(--ink);color:var(--paper);padding:8px 13px;font-size:13.5px;cursor:pointer;font-family:var(--f-sans);
+}
+.search button:hover{background:var(--cinnabar);}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:var(--card);border-radius:var(--r-sm);
+  padding:7px 12px;font-size:14px;font-family:var(--f-sans);cursor:pointer;color:var(--ink);
+}
+.search-result{
+  font-size:13.5px;color:var(--cinnabar);flex-basis:100%;display:none;
+}
+.search-result.show{display:block;}
+
+/* ---------- 首屏 ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#faf6ec 0%,var(--paper) 100%);}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-top:56px;padding-bottom:64px;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.16em;color:var(--gold);
+  border:1px solid rgba(168,118,31,.35);padding:3px 12px;border-radius:999px;background:rgba(217,164,65,.08);
+}
+.hero h1{font-size:clamp(38px,5.4vw,62px);line-height:1.12;margin:18px 0 16px;letter-spacing:.04em;}
+.hero h1 em{font-style:normal;color:var(--cinnabar);}
+.hero p.lede{font-size:16.5px;color:var(--ink-soft);max-width:34em;margin:0 0 26px;}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-block;padding:11px 22px;border-radius:var(--r-sm);font-size:15px;border:1px solid var(--ink);transition:transform .16s,background .16s,color .16s;}
+.btn.primary{background:var(--ink);color:#f6f2e9;}
+.btn.primary:hover{background:var(--cinnabar);border-color:var(--cinnabar);color:#fff;transform:translateY(-2px);}
+.btn.ghost{background:transparent;color:var(--ink);}
+.btn.ghost:hover{background:var(--paper-2);transform:translateY(-2px);}
+.hero-stats{display:flex;gap:30px;margin-top:34px;flex-wrap:wrap;}
+.hero-stats div{line-height:1.35;}
+.hero-stats b{font-family:var(--f-serif);font-size:27px;color:var(--cinnabar);display:block;}
+.hero-stats span{font-size:12.5px;color:var(--muted);letter-spacing:.1em;}
+.hero-art{position:relative;min-height:340px;display:flex;align-items:center;justify-content:center;}
+.hero-art svg{width:100%;max-width:460px;height:auto;}
+.art-caption{
+  position:absolute;bottom:4px;right:8px;font-size:12px;color:var(--muted);letter-spacing:.08em;
+}
+
+/* ---------- 板块通用 ---------- */
+section.block{padding-top:var(--s5);padding-bottom:var(--s5);border-bottom:1px solid var(--line-soft);}
+section.block:last-of-type{border-bottom:0;}
+.sec-head{margin-bottom:var(--s4);}
+.sec-kicker{font-size:12.5px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;}
+.sec-head h2{font-size:clamp(24px,3vw,31px);margin:6px 0 8px;letter-spacing:.03em;}
+.sec-head p{margin:0;color:var(--ink-soft);font-size:15px;max-width:52em;}
+
+/* 网格卡片 */
+.grid{display:grid;gap:var(--s3);}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g2{grid-template-columns:repeat(2,1fr);}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:22px 22px 20px;transition:transform .18s,box-shadow .18s,border-color .18s;
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);border-color:#cdbfa5;}
+.card .meta{font-size:12.5px;color:var(--muted);letter-spacing:.06em;margin-bottom:6px;}
+.card h3{font-size:18.5px;margin:0 0 8px;line-height:1.45;}
+.card p{margin:0;font-size:14.5px;color:var(--ink-soft);flex:1;}
+.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.tag{font-size:12.5px;padding:2px 10px;border-radius:999px;background:var(--paper-2);color:var(--ink-soft);border:1px solid var(--line-soft);}
+.tag.gold{background:rgba(217,164,65,.14);border-color:rgba(168,118,31,.3);color:#7a5514;}
+.tag.jade{background:rgba(47,107,95,.1);border-color:rgba(47,107,95,.28);color:#245549;}
+.tag.red{background:rgba(168,56,44,.09);border-color:rgba(168,56,44,.28);color:var(--cinnabar);}
+
+/* 紧凑列表 */
+.listing{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
+.listing li{
+  display:grid;grid-template-columns:92px 1fr auto;gap:18px;align-items:baseline;
+  padding:15px 4px;border-bottom:1px solid var(--line-soft);
+}
+.listing .date{font-size:13px;color:var(--muted);letter-spacing:.04em;font-variant-numeric:tabular-nums;}
+.listing .ttl{font-size:16px;font-weight:600;}
+.listing .ttl small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:3px;line-height:1.7;}
+.listing .src{font-size:12.5px;color:var(--gold);white-space:nowrap;}
+.listing li:hover .ttl{color:var(--cinnabar);}
+
+/* 分类索引进阶 */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.cat{
+  border:1px solid var(--line);background:var(--card);border-radius:var(--r-sm);padding:15px 16px;
+  display:flex;flex-direction:column;gap:4px;transition:background .18s,transform .18s;
+}
+.cat:hover{background:var(--paper-2);transform:translateY(-2px);}
+.cat b{font-family:var(--f-serif);font-size:16.5px;}
+.cat span{font-size:12.5px;color:var(--muted);}
+
+/* 双栏正文 */
+.split{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:var(--s4);align-items:start;}
+.prose h3{font-size:20px;margin:var(--s4) 0 10px;padding-left:12px;border-left:3px solid var(--gold-2);}
+.prose h3:first-child{margin-top:0;}
+.prose p{margin:0 0 16px;color:#2c3744;}
+.prose ul{margin:0 0 16px;padding-left:1.2em;}
+.prose li{margin-bottom:7px;}
+.fact-box{
+  border:1px solid var(--line);border-radius:var(--r-md);background:var(--card);
+  padding:20px 22px;margin:20px 0;
+}
+.fact-box .fb-t{font-size:12.5px;letter-spacing:.18em;color:var(--gold);margin-bottom:10px;}
+.fact-box table{width:100%;border-collapse:collapse;font-size:14px;}
+.fact-box th,.fact-box td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line-soft);vertical-align:top;}
+.fact-box th{color:var(--muted);font-weight:500;width:32%;}
+.fact-box tr:last-child th,.fact-box tr:last-child td{border-bottom:0;}
+
+/* 引语卡 */
+.quote-card{
+  border-left:4px solid var(--cinnabar);background:var(--card);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:20px 24px;margin:22px 0;box-shadow:var(--shadow);
+}
+.quote-card p{font-family:var(--f-serif);font-size:18px;line-height:1.8;margin:0 0 10px;color:var(--ink);}
+.quote-card cite{font-style:normal;font-size:13px;color:var(--muted);}
+
+/* 编号步骤 */
+.steps{counter-reset:st;list-style:none;margin:0;padding:0;display:grid;gap:14px;}
+.steps li{
+  counter-increment:st;display:grid;grid-template-columns:44px 1fr;gap:16px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:18px 20px;
+}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);font-family:var(--f-serif);font-size:22px;color:var(--gold);
+  border-right:1px solid var(--line-soft);line-height:1.5;
+}
+.steps b{display:block;font-size:16.5px;margin-bottom:4px;}
+.steps p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+
+/* 时间线 */
+.timeline{list-style:none;margin:0;padding:0 0 0 20px;border-left:2px solid var(--line);}
+.timeline li{position:relative;padding:0 0 24px 22px;}
+.timeline li::before{
+  content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--gold-2);
+}
+.timeline li:last-child{padding-bottom:0;}
+.timeline .when{font-size:12.5px;color:var(--gold);letter-spacing:.08em;}
+.timeline b{display:block;font-size:16px;margin:3px 0 4px;}
+.timeline p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+
+/* 对照面板 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--card);}
+.compare > div{padding:22px;}
+.compare > div:first-child{border-right:1px solid var(--line);background:linear-gradient(180deg,#fbf7ee,#fffdf8);}
+.compare h4{margin:0 0 12px;font-size:16.5px;letter-spacing:.04em;}
+.compare h4 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:1px;}
+.compare ul{margin:0;padding-left:1.15em;font-size:14.5px;color:var(--ink-soft);}
+.compare li{margin-bottom:6px;}
+
+/* 标签索引 */
+.tag-index{display:flex;flex-wrap:wrap;gap:10px;}
+.tag-index a{
+  font-size:14px;padding:6px 15px;border-radius:999px;border:1px solid var(--line);
+  background:var(--card);color:var(--ink-soft);transition:background .16s,transform .16s,color .16s;
+}
+.tag-index a:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px);border-color:var(--ink);}
+.tag-index a .n{font-size:11.5px;color:var(--muted);margin-left:5px;}
+.tag-index a:hover .n{color:var(--gold-2);}
+
+/* 问答折叠 */
+details.faq{
+  border:1px solid var(--line);border-radius:var(--r-md);background:var(--card);margin-bottom:11px;overflow:hidden;
+}
+details.faq summary{
+  cursor:pointer;list-style:none;padding:15px 46px 15px 20px;font-size:16px;font-weight:600;
+  position:relative;font-family:var(--f-serif);transition:background .16s;
+}
+details.faq summary::-webkit-details-marker{display:none;}
+details.faq summary::after{
+  content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  font-size:21px;color:var(--gold);font-family:var(--f-sans);line-height:1;
+}
+details.faq[open] summary::after{content:"–";}
+details.faq summary:hover{background:var(--paper-2);}
+details.faq .ans{padding:0 20px 18px;font-size:14.8px;color:var(--ink-soft);border-top:1px dashed var(--line-soft);padding-top:14px;}
+
+/* 评论 */
+.comments{display:grid;gap:13px;}
+.cmt{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:16px 19px;
+  display:grid;grid-template-columns:38px 1fr;gap:14px;
+}
+.cmt .av{
+  width:38px;height:38px;border-radius:50%;background:var(--paper-2);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-family:var(--f-serif);font-size:16px;color:var(--gold);
+}
+.cmt .who{font-size:13.5px;color:var(--muted);margin-bottom:4px;}
+.cmt .who b{color:var(--ink);font-weight:600;margin-right:8px;}
+.cmt p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+.cmt .ref{color:var(--jade);border-bottom:1px dotted var(--jade);}
+
+/* 侧栏 */
+aside.rail{display:grid;gap:var(--s3);position:sticky;top:calc(var(--stick) + 10px);}
+.rail-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:20px;}
+.rail-card h3{font-size:15.5px;margin:0 0 12px;letter-spacing:.06em;color:var(--ink);}
+.rail-card h3::after{content:"";display:block;width:26px;height:2px;background:var(--gold-2);margin-top:7px;}
+.rail-nav{list-style:none;margin:0;padding:0;}
+.rail-nav a{
+  display:block;font-size:14px;padding:6px 9px;border-radius:var(--r-sm);color:var(--ink-soft);
+  border-left:2px solid transparent;transition:background .16s,border-color .16s,color .16s;
+}
+.rail-nav a:hover{background:var(--paper-2);}
+.rail-nav a.active{background:var(--paper-2);border-left-color:var(--cinnabar);color:var(--cinnabar);font-weight:600;}
+.rail-list{list-style:none;margin:0;padding:0;font-size:14px;}
+.rail-list li{padding:9px 0;border-bottom:1px dashed var(--line-soft);display:flex;gap:10px;align-items:baseline;}
+.rail-list li:last-child{border-bottom:0;}
+.rail-list .idx{font-family:var(--f-serif);color:var(--gold);font-size:14px;width:18px;flex:none;}
+.rail-list a{color:var(--ink-soft);}
+.mini-note{font-size:13px;color:var(--muted);line-height:1.75;margin:0;}
+
+/* 页尾 */
+footer.site{background:var(--ink);color:#c9c2b3;padding:var(--s5) 0 30px;margin-top:0;}
+footer.site .f-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:var(--s4);padding-bottom:var(--s4);border-bottom:1px solid rgba(255,255,255,.12);}
+footer.site .f-brand{display:flex;align-items:center;gap:11px;margin-bottom:14px;}
+footer.site .f-brand svg{width:34px;height:34px;}
+footer.site .f-brand b{font-family:var(--f-serif);font-size:19px;color:#f1e9d8;letter-spacing:.06em;}
+footer.site .f-desc{font-size:13.8px;line-height:1.9;color:#a9a294;max-width:24em;}
+footer.site h4{font-size:13px;letter-spacing:.2em;color:var(--gold-2);margin:0 0 14px;font-weight:600;}
+footer.site ul{list-style:none;margin:0;padding:0;font-size:14px;}
+footer.site ul li{margin-bottom:9px;}
+footer.site ul a{color:#c9c2b3;}
+footer.site ul a:hover{color:#fff;}
+footer.site .f-bottom{padding-top:22px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12.8px;color:#8f8879;}
+.sample-note{font-size:12.8px;color:#8f8879;line-height:1.85;margin-top:14px;}
+
+/* 回顶 */
+#toTop{
+  position:fixed;right:20px;bottom:22px;z-index:80;width:46px;height:46px;border-radius:50%;
+  border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;
+  box-shadow:var(--shadow);font-size:16px;display:none;align-items:center;justify-content:center;
+  font-family:var(--f-sans);transition:transform .18s,background .18s;
+}
+#toTop:hover{transform:translateY(-3px);background:var(--paper-2);}
+#toTop.show{display:flex;}
+
+/* 响应式 */
+@media (max-width:1000px){
+  .hero .wrap{grid-template-columns:1fr;gap:30px;padding-top:40px;padding-bottom:48px;}
+  .hero-art{order:-1;min-height:0;}
+  .hero-art svg{max-width:330px;}
+  .g3{grid-template-columns:repeat(2,1fr);}
+  .cats{grid-template-columns:repeat(3,1fr);}
+  .split{grid-template-columns:1fr;}
+  aside.rail{position:static;grid-template-columns:1fr 1fr;}
+  footer.site .f-top{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:720px){
+  :root{--stick:132px;}
+  .wrap{padding:0 16px;}
+  header.site .wrap{gap:12px;}
+  nav.main{order:3;flex-basis:100%;display:none;flex-direction:column;gap:2px;padding-top:4px;}
+  nav.main.open{display:flex;}
+  nav.main a{padding:9px 10px;}
+  .menu-btn{display:inline-block;}
+  .head-tools{flex:1;justify-content:flex-end;}
+  .search input{width:110px;}
+  .g3,.g2,.cats,.compare{grid-template-columns:1fr;}
+  .compare > div:first-child{border-right:0;border-bottom:1px solid var(--line);}
+  aside.rail{grid-template-columns:1fr;}
+  .listing li{grid-template-columns:1fr;gap:4px;}
+  .listing .src{justify-self:start;}
+  .hero-stats{gap:22px;}
+  footer.site .f-top{grid-template-columns:1fr;}
+  #toTop{right:12px;bottom:14px;width:42px;height:42px;}
+  .steps li{grid-template-columns:34px 1fr;gap:12px;padding:15px 14px;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none!important;animation:none!important;}
+  .card:hover,.cat:hover,.btn:hover,.tag-index a:hover,#toTop:hover{transform:none!important;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="notice" id="notice">
+  <div class="wrap">
+    <span class="badge">御龙记 柴文网 · 卷宗更新</span>
+    <span>第 47 期《烛龙夜巡》柴文已入库，新增批注 128 条；11 月 6 日修订《赤水部族谱》世系表第 9—14 行。</span>
+    <a href="/#latest">查看更新清单</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/#top" aria-label="返回首页顶部">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <rect width="64" height="64" rx="14" fill="#1b2a3a"/>
+        <path d="M16 44c6-14 12-20 22-22 4-1 8 1 9 5 1 4-2 7-6 7-3 0-5-2-5-4" fill="none" stroke="#d9a441" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M20 50c4-2 8-2 12 0" fill="none" stroke="#a8382c" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="45" cy="20" r="2.4" fill="#d9a441"/>
+      </svg>
+      <span class="names">
+        <b>御龙记 柴文网</b>
+        <span>CHAIWEN ARCHIVE</span>
+      </span>
+    </a>
+    <nav class="main" id="mainNav" aria-label="主题导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#picks">精选卷宗</a>
+      <a href="/#latest">最新入库</a>
+      <a href="/#channels">篇目分类</a>
+      <a href="/#deep">深度考据</a>
+      <a href="/#guide">入门读法</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#voices">读者评议</a>
+    </nav>
+    <div class="head-tools">
+      <div class="search" role="search">
+        <input type="search" id="q" placeholder="搜篇目、人物、批注" aria-label="站内查找">
+        <button type="button" id="qBtn">查</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">目录</button>
+    </div>
+    <p class="search-result" id="qResult" role="status" aria-live="polite"></p>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="hero-tag">山海异闻 · 柴文卷宗</span>
+        <h1>御龙记 柴文网</h1>
+        <p class="lede">把散在册页、批注与族谱里的应龙、烛龙、赤水旧事收进同一套卷宗号。每篇柴文标注期数、校勘来源与批注层级，读得进故事，也查得到出处。</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="/#picks">读第 47 期柴文</a>
+          <a class="btn ghost" href="/#guide">按四步法入门</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>1247</b><span>柴文条数</span></div>
+          <div><b>47</b><span>已刊期数</span></div>
+          <div><b>3862</b><span>批注条目</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f3ead6"/>
+              <stop offset="1" stop-color="#e9dfc9"/>
+            </linearGradient>
+            <linearGradient id="dragon" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#a8382c"/>
+              <stop offset="1" stop-color="#6f241c"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="460" height="400" rx="18" fill="url(#sky)"/>
+          <circle cx="352" cy="86" r="40" fill="#e6c67c" opacity=".65"/>
+          <path d="M0 330c70-26 120-6 176-30 60-26 96-6 150-24 46-15 96-6 134 10v104H0z" fill="#cfbf9f" opacity=".55"/>
+          <path d="M0 356c80-18 130 2 190-16 62-19 104 4 158-8 40-9 82-2 112 8v60H0z" fill="#b8a883" opacity=".55"/>
+          <path d="M64 292c26-64 62-96 118-112 30-9 62-4 84 10 18 12 26 30 18 44-8 15-30 20-48 12-14-6-20-18-16-30" fill="none" stroke="url(#dragon)" stroke-width="11" stroke-linecap="round"/>
+          <path d="M80 300c22-46 52-70 96-84" fill="none" stroke="#d9a441" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 10"/>
+          <circle cx="250" cy="188" r="5.5" fill="#2f6b5f"/>
+          <path d="M236 158l-18-20M266 160l20-18" stroke="#2f6b5f" stroke-width="3" stroke-linecap="round"/>
+          <g fill="#7a5514" opacity=".7">
+            <rect x="300" y="270" width="14" height="58" rx="3"/>
+            <rect x="320" y="284" width="14" height="44" rx="3"/>
+            <rect x="340" y="262" width="14" height="66" rx="3"/>
+            <rect x="360" y="292" width="14" height="36" rx="3"/>
+          </g>
+          <g stroke="#8d7c5c" stroke-width="2.5" fill="none" opacity=".8">
+            <path d="M28 92h96M28 110h64M28 128h82"/>
+          </g>
+        </svg>
+        <span class="art-caption">应龙巡水图 · 手绘示意</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 领域概览 -->
+  <section class="block" id="overview">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">FIELD OVERVIEW</div>
+        <h2>御龙记柴文研究的三条主线</h2>
+        <p>柴文指的是围绕龙族谱系、山海地理与上古神职写成的短篇卷宗体文字，多附批注流传。现存材料集中在三个方向，彼此交叉，但查法不同。</p>
+      </div>
+      <div class="grid g3">
+        <article class="card">
+          <div class="meta">谱系 · 世系表</div>
+          <h3>应龙世家与赤水部族谱</h3>
+          <p>以《赤水部族谱》为底本，记录应龙一支从共工台到南海的迁徙节点。谱中第 9—14 行为 11 月 6 日修订处，主要改动是“析支”与“析枝”的字形复原。</p>
+          <div class="tagrow"><span class="tag gold">世系表</span><span class="tag">迁徙节点</span></div>
+        </article>
+        <article class="card">
+          <div class="meta">地理 · 山海考</div>
+          <h3>烛龙夜巡与北荒烛阴山</h3>
+          <p>第 47 期柴文以烛龙昼夜司掌为轴，比对《山海经·大荒北经》与敦煌残卷 P.2683 中的异文，标出“不食不寝”句的两处脱字。</p>
+          <div class="tagrow"><span class="tag gold">异文对照</span><span class="tag">北荒</span></div>
+        </article>
+        <article class="card">
+          <div class="meta">神职 · 礼制</div>
+          <h3>龙伯国龙伯钓鳌的礼制线索</h3>
+          <p>《列子·汤问》记龙伯之国，卷宗里把它和秦简《日书》乙种中的“龙日”放在一处读，讨论钓鳌是否为祭祀前的禁忌行为。</p>
+          <div class="tagrow"><span class="tag gold">秦简日书</span><span class="tag">禁忌</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精选推荐 -->
+  <section class="block" id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">CURATED</div>
+        <h2>秋冬交替值得先读的六卷柴文</h2>
+        <p>按批注密度、异文数量和可考出处三项排序，不是按阅读量。卷号后括号里是校对状态，标“已校”意味着至少两人独立过目。</p>
+      </div>
+      <div class="grid g3">
+        <article class="card">
+          <div class="meta">卷 041 · 已校 · 批注 87 条</div>
+          <h3>从应龙蓄水看上古水利叙事</h3>
+          <p>把《大荒东经》“应龙处南极”与汉代画像石中的应龙持水图像并置，指出“蓄水”一说在战国文本中其实没有直接落地。</p>
+          <div class="tagrow"><span class="tag jade">应龙蓄水</span><span class="tag">画像石</span></div>
+        </article>
+        <article class="card">
+          <div class="meta">卷 044 · 已校 · 批注 112 条</div>
+          <h3>豢龙氏与御龙氏的职官分合</h3>
+          <p>《左传》昭公二十九年两种称呼并存，卷宗按国别与年代拆分使用场景，附三条不同学者的处理方式。</p>
+          <div class="tagrow"><span class="tag jade">豢龙氏</span><span class="tag">职官</span></div>
+        </article>
+        <article class="card">
+          <div class="meta">卷 045 · 待校 · 批注 51 条</div>
+          <h3>钟山之神与烛龙形象的合流</h3>
+          <p>钟山、章尾山两处地名在六朝注疏中开始互换，卷宗梳理互换发生的时间窗，给出可核对的三条注文。</p>
+          <div class="tagrow"><span class="tag red">待校</span><span class="tag">注疏</span></div>
+        </article>
+        <article class="card">
+          <div class="meta">卷 046 · 已校 · 批注 96 条</div>
+          <h3>龙伯钓鳌与海上祭祀次序</h3>
+          <p>以《列子》文本为主，配合秦简《日书》乙种“龙日”条，讨论出海前禁忌的先后位置。</p>
+          <div class="tagrow"><span class="tag jade">钓鳌</span><span class="tag">日书</span></div>
+        </article>
+        <article class="card">
+          <div class="meta">卷 047 · 新刊 · 批注 128 条</div>
+          <h3>烛龙夜巡：昼夜司掌的版本差异</h3>
+          <p>11 月 8 日上线。对照敦煌残卷 P.2683 与传世本，逐句列出“视为昼，瞑为夜”一句的两种断读。</p>
+          <div class="tagrow"><span class="tag red">新刊</span><span class="tag gold">P.2683</span></div>
+        </article>
+        <article class="card">
+          <div class="meta">卷 039 · 已校 · 批注 74 条</div>
+          <h3>九似说之前的龙形描述</h3>
+          <p>罗愿《尔雅翼》之前，龙的形象靠零散部件拼合。卷宗挑了六个早期描述，按朝代列成一览。</p>
+          <div class="tagrow"><span class="tag jade">九似</span><span class="tag">尔雅翼</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最新入库 + 相关资讯（双栏） -->
+  <section class="block" id="latest">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <div class="sec-head">
+            <div class="sec-kicker">RECENT UPDATES</div>
+            <h2>11 月 1 日至 8 日入库记录</h2>
+            <p>按入库时间倒序，只列新增与修订。修订条目标出改动位置，方便对照旧版批注。</p>
+          </div>
+          <ul class="listing">
+            <li>
+              <span class="date">11-08</span>
+              <span class="ttl">卷 047《烛龙夜巡》上线<small>附敦煌残卷 P.2683 影写本释文，新增批注 128 条，其中 31 条针对“视为昼”断读。</small></span>
+              <span class="src">新刊</span>
+            </li>
+            <li>
+              <span class="date">11-06</span>
+              <span class="ttl">《赤水部族谱》修订第 9—14 行<small>“析支”恢复为“析枝”，引《水经注》卷二异文；连带调整三处迁徙年份。</small></span>
+              <span class="src">修订</span>
+            </li>
+            <li>
+              <span class="date">11-05</span>
+              <span class="ttl">卷 044 附录补入《左传》昭公二十九年异文<small>补清代学者王引之的一条按语，与原文分栏排布。</small></span>
+              <span class="src">增补</span>
+            </li>
+            <li>
+              <span class="date">11-03</span>
+              <span class="ttl">钟山、章尾山地理坐标对照表<small>列出四种古今对应方案，附谭其骧与袁珂两说的差异说明。</small></span>
+              <span class="src">新表</span>
+            </li>
+            <li>
+              <span class="date">11-02</span>
+              <span class="ttl">卷 039 批注 74 条全部复核<small>删去 5 条来源不明的按语，改为标注“待查”。</small></span>
+              <span class="src">复核</span>
+            </li>
+            <li>
+              <span class="date">11-01</span>
+              <span class="ttl">龙伯钓鳌与秦简《日书》对照页<small>把“龙日”禁忌条目与《列子》文本并读，补出土编号。</small></span>
+              <span class="src">新刊</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="sec-head" style="margin-bottom:var(--s3)">
+            <div class="sec-kicker">NEWS</div>
+            <h2>相关资讯</h2>
+          </div>
+          <div class="card" style="margin-bottom:var(--s3)">
+            <div class="meta">11-07 · 转载</div>
+            <h3>馆藏释文整理项目公布第三批目录</h3>
+            <p>涉及敦煌残卷中与山海叙事有关的 14 件写本，其中 P.2683 已排入首批。目录未含释文正文，需到馆核对。</p>
+            <div class="tagrow"><span class="tag">写本目录</span><span class="tag">待核对</span></div>
+          </div>
+          <div class="card">
+            <div class="meta">11-04 · 活动通告</div>
+            <h3>“山海异文对读”线下小讲堂报名</h3>
+            <p>11 月 16 日，限 24 席。以《大荒北经》两段异文为材料，现场练习题校格式，报名需提交一条自拟批注。</p>
+            <div class="tagrow"><span class="tag jade">对读练习</span><span class="tag">线下</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分类入口 -->
+  <section class="block" id="channels">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">CHANNELS</div>
+        <h2>按篇目类型分十个入口</h2>
+        <p>柴文卷宗按材料性质分类，不按朝代。同一卷可能同时属于“世系表”和“异文对照”，查的时候挑最贴近问题的那一类。</p>
+      </div>
+      <div class="cats">
+        <a class="cat" href="/#picks"><b>应龙世家谱系</b><span>世系、迁徙、封号</span></a>
+        <a class="cat" href="/#deep"><b>烛龙昼夜异文</b><span>版本断读与注疏</span></a>
+        <a class="cat" href="/#guide"><b>豢龙与御龙职官</b><span>官职分合、国别</span></a>
+        <a class="cat" href="/#latest"><b>龙伯钓鳌考</b><span>海上祭祀与禁忌</span></a>
+        <a class="cat" href="/#picks"><b>九似说以前龙形</b><span>部件描述拼合</span></a>
+        <a class="cat" href="/#deep"><b>钟山章尾山地理</b><span>古今坐标对照</span></a>
+        <a class="cat" href="/#voices"><b>柴文批注体例</b><span>标记、缩写、格式</span></a>
+        <a class="cat" href="/#guide"><b>写本释文整理</b><span>残卷、摹写、校记</span></a>
+        <a class="cat" href="/#latest"><b>山海经注疏汇编</b><span>郭璞至袁珂</span></a>
+        <a class="cat" href="/#faq"><b>龙日禁忌与日书</b><span>秦简、择日、祭祀</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 深度解析（唯一主体阅读区） -->
+  <section class="block" id="deep">
+    <div class="wrap">
+      <div class="split">
+        <div class="prose">
+          <div class="sec-head" style="margin-bottom:var(--s3)">
+            <div class="sec-kicker">IN-DEPTH</div>
+            <h2>“视为昼，瞑为夜”：一句六字的三种读法，哪一种站得住</h2>
+            <p>卷 047 的核心判断是：传世本把烛龙的昼夜司掌理解成“开眼即白天”，是六朝注疏带出来的读法，战国文本更可能只描述其存在状态，不承担天文解释。</p>
+          </div>
+
+          <h3>一、三种读法的原话与出处</h3>
+          <p>目前能落到实处的说法有三种。第一种是郭璞《山海经注》一路读下来的“开目为昼，闭目为夜”，把“视”释为睁眼，“瞑”释为闭眼，动作对举。第二种见于敦煌残卷 P.2683，文字作“视则为昼，瞑则为夜”，多了“为”字，断句位置也就不一样，“视”更像状态而非动作。第三种是清代学者郝懿行在《山海经笺疏》里的处理，他把这句与“吹为冬，呼为夏”合看，认为整段写的是气息与光的关系，昼夜只是顺带点出。</p>
+          <p>三种读法差在同一个位置：这六字的主语究竟是烛龙的某个身体动作，还是它所在之地的一种常态。郭璞读成动作，所以能接到天文解释；P.2683 的“则为”读成常态，天文解释就多余了。</p>
+
+          <div class="fact-box">
+            <div class="fb-t">可核对：三种读法的判据对照</div>
+            <table>
+              <tr><th>读法</th><td>郭璞注 | P.2683 | 郝懿行笺疏</td></tr>
+              <tr><th>关键措辞</th><td>开目、闭目 | 视则为昼 | 以气言，昼夜带出</td></tr>
+              <tr><th>是否承担天文解释</th><td>是 | 否 | 否</td></tr>
+              <tr><th>可反驳点</th><td>“视”字无开义 | “为”字或为抄手增 | 合看依据为句式对举</td></tr>
+            </table>
+          </div>
+
+          <h3>二、P.2683 的写法不是孤例</h3>
+          <p>残卷多出的“为”字，容易被当成抄手顺手添的虚字。但同一写本中另一处“风雨是谒”句，也在动词后加了“为”，两处改动方向一致，更像是抄写底本的用字习惯，而不是偶误。11 月 6 日整理这批写本时，我们核对了 P.2683 的正面与背面笔迹，背面批注的“为”字写法与正面正文一致，说明至少是同一抄手所加。</p>
+          <p>反过来说，这并不能直接证明传世本就错了。传世本流传有绪，郭璞所见底本未必是 P.2683 这一系。更稳妥的说法是：六朝时期至少存在两种断读并行，郭璞选了动作一路，并把它固定下来。</p>
+
+          <blockquote class="quote-card">
+            <p>“把‘视’当成睁眼，是把一句描写状态的话改造成了解释世界的话。改写很成功，代价是原句里的沉默被填满了。”</p>
+            <cite>—— 卷 047 校记，第 14 条按语</cite>
+          </blockquote>
+
+          <h3>三、为什么这个判断值得被反驳</h3>
+          <p>反驳的点集中在一处：战国文本对神祇的描写，本来就不排除用身体动作隐喻自然现象。《大荒北经》写烛龙“不食不寝不息”，三个“不”都在说它不吃不睡不呼吸，这一串否定本身就带着超常意味。若整段只是静态描述，三个“不”的排布就有点空。所以郭璞的读法也不是纯粹附会，它接住的是文本里已经存在的张力。</p>
+          <p>我们仍然倾向 P.2683 一路，理由有二。第一，“吹为冬，呼为夏”与“视为昼，瞑为夜”句式严格对举，气息与目光应是同类表述，都写它的存在方式，而非逐一解释四季昼夜。第二，郭璞注中“天不足西北，无有阴阳”一句，是拿烛龙去补一个宇宙论缺口，这个补法在六朝很常见，但战国文本里找不到对应表述。</p>
+
+          <h3>四、可核对的落地步骤</h3>
+          <ol class="steps">
+            <li><b>先看字，不先看义</b><p>把“视”“瞑”“为”三字在写本中的形体抄下来，比对同卷其他“为”字的写法，判断是否为同一抄手习惯。</p></li>
+            <li><b>再看句式对举</b><p>把“吹为冬，呼为夏”“视为昼，瞑为夜”并列，看两组是否同一语法结构。若一致，动作读法的空间收窄。</p></li>
+            <li><b>最后看注疏链条</b><p>从郭璞到郝懿行，标出每一环是照抄、增补还是改写。链条越靠后，越可能是再解释而非原文义。</p></li>
+          </ol>
+        </div>
+
+        <aside class="rail" aria-label="页内导航与辅助信息">
+          <div class="rail-card">
+            <h3>本页栏目</h3>
+            <ul class="rail-nav" id="railNav">
+              <li><a href="/#overview">领域概览</a></li>
+              <li><a href="/#picks">精选卷宗</a></li>
+              <li><a href="/#latest">最新入库</a></li>
+              <li><a href="/#channels">篇目分类</a></li>
+              <li><a href="/#deep">深度考据</a></li>
+              <li><a href="/#guide">入门读法</a></li>
+              <li><a href="/#faq">常见问题</a></li>
+              <li><a href="/#voices">读者评议</a></li>
+              <li><a href="/#ranks">批注榜</a></li>
+              <li><a href="/#tags">相关推荐</a></li>
+            </ul>
+          </div>
+          <div class="rail-card">
+            <h3>本周批注热点</h3>
+            <ul class="rail-list">
+              <li><span class="idx">一</span><a href="/#deep">“为”字是否抄手所增</a></li>
+              <li><span class="idx">二</span><a href="/#latest">赤水部族谱析枝复原</a></li>
+              <li><span class="idx">三</span><a href="/#picks">应龙蓄水是否有文本依据</a></li>
+              <li><span class="idx">四</span><a href="/#guide">豢龙氏国别归属</a></li>
+            </ul>
+          </div>
+          <div class="rail-card">
+            <h3>体例提示</h3>
+            <p class="mini-note">卷号后的“已校”表示两人以上独立过目；“待校”条目批注仅作参考。批注编号按入库顺序，不按重要性排列。</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 体验指南：编号步骤 + 对照面板 -->
+  <section class="block" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">HOW TO READ</div>
+        <h2>第一次读柴文卷宗，按这四步走</h2>
+        <p>柴文的麻烦不在字多，而在批注层层叠加。先认标记，再挑版本，最后才动笔写自己的按语。</p>
+      </div>
+      <ol class="steps" style="margin-bottom:var(--s4)">
+        <li><b>认标记：分清正文、校记、按语</b><p>正文用宋体，校记缩排并标“校”，按语前加“○”。三种层级混看，最容易把后人的推断当成原文。</p></li>
+        <li><b>挑版本：先定卷号，再看底本</b><p>同一篇柴文可能有两个底本。卷 047 同时收了传世本与 P.2683 释文，两栏对照，缺字用方框标出。</p></li>
+        <li><b>查批注：按编号而不是按时间</b><p>批注编号是入库顺序，早编号不代表早观点。看到引“王引之”时，先确认是清代学者的原话还是转述。</p></li>
+        <li><b>写按语：一句判断配一条出处</b><p>自己写批注时，判断句后面尽量跟具体出处。只有判断没有出处的，标“待查”，别标“已校”。</p></li>
+      </ol>
+      <div class="compare">
+        <div>
+          <h4><span class="dot" style="background:var(--jade)"></span>适合先读卷 041 的情况</h4>
+          <ul>
+            <li>想弄清应龙与水利叙事的关系</li>
+            <li>能接受图像材料与文本并列阅读</li>
+            <li>批注 87 条，篇幅中等，两晚可看完</li>
+            <li>对汉代画像石不熟，需另查图录</li>
+          </ul>
+        </div>
+        <div>
+          <h4><span class="dot" style="background:var(--cinnabar)"></span>适合先读卷 047 的情况</h4>
+          <ul>
+            <li>关心版本异文与断读方法</li>
+            <li>手里有《大荒北经》原文可对照</li>
+            <li>批注 128 条，密度高，建议分三次读</li>
+            <li>P.2683 释文有 6 处方框缺字，需容忍空白</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap" style="max-width:920px">
+      <div class="sec-head">
+        <div class="sec-kicker">FAQ</div>
+        <h2>关于柴文卷宗与批注的常见问题</h2>
+        <p>问题按提问频率排，答案只写能落到条目上的部分。涉及争议的，事实、回应、转述分开写。</p>
+      </div>
+
+      <details class="faq" open>
+        <summary>柴文卷宗的卷号是怎么排的？</summary>
+        <div class="ans">卷号按入库先后排，与所涉年代无关。卷 039 谈九似说以前龙形，卷 047 谈烛龙，编号差 8，但两卷材料年代跨度接近。卷号不重排，修订只在卷内加“校记”，因此旧卷号永远指同一篇。</div>
+      </details>
+      <details class="faq">
+        <summary>应龙蓄水的说法最早出现在哪一条材料里？</summary>
+        <div class="ans">应龙与水的关联在《大荒东经》《大荒北经》都有，但“蓄水”二字本身不见于战国文本。汉代画像石里应龙常与水纹同出，是图像证据。卷 041 的判断是：文字证据只能支持“应龙处南极”，蓄水是后起的解释，不是原文措辞。</div>
+      </details>
+      <details class="faq">
+        <summary>豢龙氏和御龙氏是同一种职官吗？</summary>
+        <div class="ans">《左传》昭公二十九年两称并存，语境不同。豢龙氏多与养龙之事相连，御龙氏多与驾车、侍从相连。卷 044 把两称按国别拆开：一处指族，一处指职。混用会让人误以为只有一种官职。</div>
+      </details>
+      <details class="faq">
+        <summary>敦煌残卷 P.2683 的释文为什么有方框？</summary>
+        <div class="ans">方框表示原卷此处残缺，无法从字形辨读。释文不做补字，只标出残缺位置与大致字数。卷 047 里有 6 处方框，其中 2 处据上下文可推测，仍标“待查”，不直接填入。</div>
+      </details>
+      <details class="faq">
+        <summary>批注里标“待查”和标“已校”差在哪？</summary>
+        <div class="ans">“已校”指至少两人独立核对过出处；“待查”指只有一条来源，或来源未能复核。批注编号与这两种状态无关。看到“待查”时，按语可以引，但不宜当作定论转述。</div>
+      </details>
+      <details class="faq">
+        <summary>龙伯钓鳌和秦简《日书》真的能对读吗？</summary>
+        <div class="ans">能对读的是“龙日”禁忌这一层，不是整个故事。秦简《日书》乙种有择日条目涉及“龙”，性质是出行禁忌；《列子·汤问》的钓鳌是寓言。卷 046 只把禁忌次序拿来比较，不主张两者有直接传承。</div>
+      </details>
+      <details class="faq">
+        <summary>钟山和章尾山是同一座山吗？</summary>
+        <div class="ans">六朝注疏里两处地名开始互换，但互换发生的时间有先后。卷 045 给出三条注文，最早一条仍分开写，稍晚一条已并称。是否同一座山，现有材料不足以定论，四种古今对应方案都列在 11 月 3 日的对照表里。</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 用户评论 -->
+  <section class="block" id="voices">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">VOICES</div>
+        <h2>读者批注与反馈</h2>
+        <p>评论按入库时间排，保留原话，只做错字更正。带“卷”字的指向具体篇目，未标的指向批注体例本身。</p>
+      </div>
+      <div class="comments">
+        <div class="cmt">
+          <div class="av">徐</div>
+          <div>
+            <div class="who"><b>徐砚舟</b>11-07 21:40</div>
+            <p>卷 047 把 P.2683 正面背面笔迹放在一起比对，这一步踏实。之前只看正面，总觉得多出的“为”字是抄手随手添的。</p>
+          </div>
+        </div>
+        <div class="cmt">
+          <div class="av">林</div>
+          <div>
+            <div class="who"><b>林间拾字</b>11-07 09:12</div>
+            <p>不太同意“六朝注疏带出来的读法”这个说法。郭璞见过的底本我们看不到，说他改写，证据还是薄。</p>
+          </div>
+        </div>
+        <div class="cmt">
+          <div class="av">周</div>
+          <div>
+            <div class="who"><b>周南旧客</b>11-06 23:05</div>
+            <p>《赤水部族谱》第 12 行改回“析枝”之后，迁徙年份和《水经注》卷二对上了。之前那版差两年，一直别扭。</p>
+          </div>
+        </div>
+        <div class="cmt">
+          <div class="av">陈</div>
+          <div>
+            <div class="who"><b>陈默斋</b>11-06 14:33</div>
+            <p>批注编号按入库顺序这点很好，但网页上找某一条批注得一遍遍翻，能不能加个按编号跳转？</p>
+          </div>
+        </div>
+        <div class="cmt">
+          <div class="av">何</div>
+          <div>
+            <div class="who"><b>何处秋风</b>11-05 20:18</div>
+            <p>卷 044 附录里王引之那条按语标了“转述”，但原话我没在《经义述闻》里找到对应卷次，希望补一下。</p>
+          </div>
+        </div>
+        <div class="cmt">
+          <div class="av">孟</div>
+          <div>
+            <div class="who"><b>孟九皋</b>11-04 11:26</div>
+            <p>卷 041 画像石那部分配的图注写得细，连水纹方向都标了。就是图太少，三处只能看一处。</p>
+          </div>
+        </div>
+        <div class="cmt">
+          <div class="av">陆</div>
+          <div>
+            <div class="who"><b>陆小满</b>11-03 16:50</div>
+            <p>钟山章尾山对照表里，四种方案排得清楚。不过谭其骧那说的年份我记的是另一版，表里没写出处版本。</p>
+          </div>
+        </div>
+        <div class="cmt">
+          <div class="av">吴</div>
+          <div>
+            <div class="who"><b>吴下阿蒙</b>11-02 22:07</div>
+            <p>整体体例稳定，就是“待查”标得有点多，卷 039 复核删了 5 条，剩下的还有十几条挂着。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 批注榜（补充板块：榜单） -->
+  <section class="block" id="ranks">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">ANNOTATION RANK</div>
+        <h2>10 月批注活跃榜</h2>
+        <p>统计口径为 10 月 9 日至 11 月 8 日期间新增批注条数，不含删改。显示前三名与入榜篇目，便于找讨论集中的卷。</p>
+      </div>
+      <div class="grid g3">
+        <article class="card">
+          <div class="meta">第 1 名 · 128 条</div>
+          <h3>卷 047 烛龙夜巡</h3>
+          <p>其中 31 条围绕“视为昼”断读，22 条讨论“为”字是否抄手所增。新刊三天内批注数已超过去年任何一卷。</p>
+          <div class="tagrow"><span class="tag gold">断读</span><span class="tag">新刊</span></div>
+        </article>
+        <article class="card">
+          <div class="meta">第 2 名 · 112 条</div>
+          <h3>卷 044 豢龙氏与御龙氏</h3>
+          <p>争议集中在国别归属。有批注按《左传》昭公二十九年旧注排，也有人主张按杜预注重排，两说未合。</p>
+          <div class="tagrow"><span class="tag gold">职官</span><span class="tag">国别</span></div>
+        </article>
+        <article class="card">
+          <div class="meta">第 3 名 · 87 条</div>
+          <h3>卷 041 应龙蓄水</h3>
+          <p>批注多在补图像材料，文字部分讨论少。有读者提出汉代画像石中水纹方向与“处南极”不符，校记里尚未回应。</p>
+          <div class="tagrow"><span class="tag gold">画像石</span><span class="tag">待回应</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 相关推荐标签 -->
+  <section class="block" id="tags">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">RELATED</div>
+        <h2>相关推荐与检索词</h2>
+        <p>标签后数字是关联卷数与批注条目合计。点开可直接到对应栏目，不用逐页翻。</p>
+      </div>
+      <div class="tag-index">
+        <a href="/#deep">烛龙昼夜异文 <span class="n">12</span></a>
+        <a href="/#picks">应龙世家谱系 <span class="n">9</span></a>
+        <a href="/#guide">豢龙氏职官分合 <span class="n">7</span></a>
+        <a href="/#latest">龙伯钓鳌考 <span class="n">6</span></a>
+        <a href="/#deep">钟山章尾山地理 <span class="n">8</span></a>
+        <a href="/#picks">九似说以前龙形 <span class="n">5</span></a>
+        <a href="/#guide">柴文批注体例 <span class="n">11</span></a>
+        <a href="/#latest">敦煌残卷 P.2683 <span class="n">14</span></a>
+        <a href="/#faq">龙日禁忌与日书 <span class="n">4</span></a>
+        <a href="/#channels">山海经注疏汇编 <span class="n">10</span></a>
+        <a href="/#deep">“析枝”字形复原 <span class="n">3</span></a>
+        <a href="/#guide">写本释文整理方法 <span class="n">6</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <div class="f-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <rect width="64" height="64" rx="14" fill="#243647"/>
+            <path d="M16 44c6-14 12-20 22-22 4-1 8 1 9 5 1 4-2 7-6 7-3 0-5-2-5-4" fill="none" stroke="#d9a441" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M20 50c4-2 8-2 12 0" fill="none" stroke="#a8382c" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <b>御龙记 柴文网</b>
+        </div>
+        <p class="f-desc">把应龙、烛龙、龙伯三支旧事与批注整理成可对照的卷宗，供人一页一页查回原句。</p>
+        <p class="sample-note">站内卷号、批注条数、评议与活动信息均为示例数据，用于展示栏目结构；释文与出处标注不构成正式校勘结论。</p>
+      </div>
+      <div>
+        <h4>篇目</h4>
+        <ul>
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#picks">精选卷宗</a></li>
+          <li><a href="/#latest">最新入库</a></li>
+          <li><a href="/#channels">篇目分类</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>方法</h4>
+        <ul>
+          <li><a href="/#deep">深度考据</a></li>
+          <li><a href="/#guide">入门读法</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>互动</h4>
+        <ul>
+          <li><a href="/#voices">读者评议</a></li>
+          <li><a href="/#ranks">批注活跃榜</a></li>
+          <li><a href="/#tags">相关推荐</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>页脚更新时间：2026-11-08，对应正文更新项为卷 047 上线与《赤水部族谱》第 9—14 行修订。</span>
+      <span>© 2026 御龙记 柴文网 · 内容示例，仅供阅读</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('mainNav');
+  if(menuBtn && nav){
+    menuBtn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.matchMedia('(max-width:720px)').matches){
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520){ toTop.classList.add('show'); }
+    else { toTop.classList.remove('show'); }
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // 滚动高亮
+  var railLinks = Array.prototype.slice.call(document.querySelectorAll('#railNav a'));
+  var targets = railLinks.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  });
+  function highlight(){
+    var pos = window.scrollY + 170;
+    var idx = -1;
+    for(var i=0;i<targets.length;i++){
+      if(targets[i] && targets[i].offsetTop <= pos){ idx = i; }
+    }
+    railLinks.forEach(function(a,i){ a.classList.toggle('active', i === idx); });
+  }
+  window.addEventListener('scroll', highlight, {passive:true});
+  highlight();
+
+  // 本地查找
+  var input = document.getElementById('q');
+  var btn = document.getElementById('qBtn');
+  var out = document.getElementById('qResult');
+  var collect = [];
+  document.querySelectorAll('main h2, main h3, main .listing .ttl, details.faq summary').forEach(function(el){
+    var t = el.textContent.replace(/\s+/g,' ').trim();
+    if(t && collect.indexOf(t) === -1){ collect.push(t); }
+  });
+  function doSearch(){
+    var v = input.value.trim();
+    if(!v){
+      out.classList.remove('show');
+      out.textContent = '';
+      return;
+    }
+    var hits = collect.filter(function(t){ return t.indexOf(v) !== -1; });
+    out.classList.add('show');
+    if(hits.length === 0){
+      out.textContent = '没有找到与“' + v + '”相关的篇目或问题，换个词试试，比如“烛龙”“批注”。';
+    } else {
+      out.textContent = '找到 ' + hits.length + ' 条：' + hits.slice(0,3).join('；') + (hits.length>3 ? ' 等' : '');
+    }
+  }
+  btn.addEventListener('click', doSearch);
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "御龙记 柴文网",
+  "description": "国风神话题材柴文卷宗、人物列传与异文考据的整理站点，含篇目分类、入门读法与读者评议。",
+  "inLanguage": "zh-CN"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "柴文卷宗的卷号是怎么排的？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "卷号按入库先后排，与所涉年代无关。卷号不重排，修订只在卷内加校记，因此旧卷号永远指同一篇。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "应龙蓄水的说法最早出现在哪一条材料里？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "应龙与水的关联在《大荒东经》《大荒北经》都有，但蓄水二字不见于战国文本。汉代画像石里应龙常与水纹同出，属图像证据。卷 041 认为文字证据只能支持应龙处南极。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "豢龙氏和御龙氏是同一种职官吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "《左传》昭公二十九年两称并存，语境不同。豢龙氏多与养龙之事相连，御龙氏多与驾车、侍从相连。卷 044 按国别把两称拆开，一处指族，一处指职。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "敦煌残卷 P.2683 的释文为什么有方框？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "方框表示原卷此处残缺，无法从字形辨读。释文不做补字，只标出残缺位置与大致字数。卷 047 有 6 处方框，其中 2 处据上下文可推测，仍标待查。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "批注里标待查和标已校差在哪？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "已校指至少两人独立核对过出处；待查指只有一条来源，或来源未能复核。批注编号与这两种状态无关，待查按语可以引用，但不宜当作定论转述。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "龙伯钓鳌和秦简《日书》真的能对读吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "能对读的是龙日禁忌这一层。秦简《日书》乙种有择日条目涉及龙，性质是出行禁忌；《列子·汤问》的钓鳌是寓言。卷 046 只比较禁忌次序，不主张直接传承。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "钟山和章尾山是同一座山吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "六朝注疏里两处地名开始互换，但互换发生的时间有先后。卷 045 给出三条注文，最早一条仍分开写，稍晚一条已并称。是否同一座山，现有材料不足以定论。"
+      }
+    }
+  ]
+}
+</script>
+</body>
+  </html>
