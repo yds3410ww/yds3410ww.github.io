@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黑料社区登录二维码-入口机制与账号安全指引</title>
+<meta name="description" content="黑料社区登录二维码相关问题集中页，梳理扫码登录流程、动态码刷新规则、设备绑定与账号安全提醒，同时汇总社区频道入口、精选爆料话题、常见问题与用户反馈，帮助读者看清扫码背后的机制与风险。">
+<meta name="keywords" content="黑料社区登录二维码">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d2430'/%3E%3Crect x='12' y='12' width='16' height='16' fill='%23e0b64a'/%3E%3Crect x='36' y='12' width='16' height='16' fill='%23e0b64a'/%3E%3Crect x='12' y='36' width='16' height='16' fill='%23e0b64a'/%3E%3Crect x='36' y='36' width='6' height='6' fill='%23e0b64a'/%3E%3Crect x='46' y='46' width='6' height='6' fill='%23e0b64a'/%3E%3C/svg%3E">
+<style>
+:root{
+--c-bg:#f5f6f8;
+--c-surface:#ffffff;
+--c-ink:#1d2430;
+--c-ink-2:#414b5a;
+--c-ink-3:#6a7483;
+--c-line:#e2e5ea;
+--c-brand:#22303f;
+--c-accent:#c8912a;
+--c-accent-soft:#f6ecd6;
+--c-warn:#a33a2c;
+--c-warn-soft:#f8e7e2;
+--c-ok:#2f6b4f;
+--c-ok-soft:#e3efe8;
+--font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+--fs-h1:clamp(1.7rem,3.4vw,2.55rem);
+--fs-h2:1.32rem;
+--fs-h3:1.05rem;
+--fs-body:0.97rem;
+--fs-sm:0.85rem;
+--fs-xs:0.76rem;
+--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:24px;--sp-6:32px;--sp-7:48px;
+--r-s:6px;--r-m:10px;--r-l:16px;
+--sh-s:0 1px 2px rgba(29,36,48,.06);
+--sh-m:0 4px 14px rgba(29,36,48,.08);
+--sticky-h:104px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--font);background:var(--c-bg);color:var(--c-ink);font-size:var(--fs-body);line-height:1.75;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--c-accent);outline-offset:2px;border-radius:4px;}
+img{max-width:100%;display:block;}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;}
+p{margin:0 0 var(--sp-3);}
+ul,ol{margin:0 0 var(--sp-3);padding-left:1.25em;}
+li{margin-bottom:var(--sp-1);}
+:target{scroll-margin-top:calc(var(--sticky-h) + 14px);}
+section{scroll-margin-top:calc(var(--sticky-h) + 14px);}
+
+/* 吸顶公告 + 页头 */
+.sticky-wrap{position:sticky;top:0;z-index:60;box-shadow:var(--sh-s);}
+.notice-bar{background:var(--c-brand);color:#e8eaee;font-size:var(--fs-sm);padding:7px 0;}
+.notice-bar .wrap{display:flex;gap:var(--sp-3);align-items:center;justify-content:center;flex-wrap:wrap;text-align:center;}
+.notice-bar b{color:#f0c96a;font-weight:600;}
+.notice-bar time{color:#b9c0cb;font-size:var(--fs-xs);}
+.site-header{background:var(--c-surface);border-bottom:1px solid var(--c-line);}
+.site-header .wrap{display:flex;align-items:center;gap:var(--sp-4);padding:10px 0;min-height:58px;}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.brand svg{width:34px;height:34px;flex-shrink:0;}
+.brand-text{font-size:1.02rem;font-weight:700;letter-spacing:.02em;white-space:nowrap;}
+.nav-main{display:flex;gap:2px;flex-wrap:wrap;flex:1;justify-content:center;}
+.nav-main a{font-size:var(--fs-sm);color:var(--c-ink-2);padding:6px 9px;border-radius:var(--r-s);white-space:nowrap;}
+.nav-main a:hover{background:var(--c-accent-soft);color:var(--c-ink);}
+.header-tools{display:flex;align-items:center;gap:var(--sp-2);flex-shrink:0;}
+.search-box{display:flex;align-items:center;border:1px solid var(--c-line);border-radius:20px;padding:3px 4px 3px 12px;background:var(--c-bg);}
+.search-box input{border:0;background:transparent;font-family:var(--font);font-size:var(--fs-sm);width:118px;outline:none;color:var(--c-ink);}
+.search-box button{border:0;background:var(--c-brand);color:#fff;font-size:var(--fs-xs);padding:5px 12px;border-radius:16px;cursor:pointer;font-family:var(--font);}
+.menu-btn{display:none;border:1px solid var(--c-line);background:var(--c-surface);border-radius:var(--r-s);padding:6px 10px;font-size:var(--fs-sm);cursor:pointer;font-family:var(--font);color:var(--c-ink);}
+.search-status{font-size:var(--fs-xs);color:var(--c-warn);padding:0 0 6px;display:none;}
+.search-status.show{display:block;}
+
+.wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 var(--sp-4);}
+
+/* 首屏 */
+.hero{position:relative;overflow:hidden;background:var(--c-brand);color:#eef0f3;padding:var(--sp-7) 0 var(--sp-6);}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--sp-6);align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-xs);letter-spacing:.08em;color:#f0c96a;border:1px solid rgba(240,201,106,.45);border-radius:20px;padding:3px 12px;margin-bottom:var(--sp-4);}
+.hero h1{font-size:var(--fs-h1);color:#fff;margin-bottom:var(--sp-4);letter-spacing:.01em;}
+.hero-lead{font-size:1rem;color:#c8cfd8;max-width:34em;margin-bottom:var(--sp-5);}
+.hero-actions{display:flex;gap:var(--sp-3);flex-wrap:wrap;}
+.btn{display:inline-block;padding:9px 20px;border-radius:22px;font-size:var(--fs-sm);font-weight:600;}
+.btn-primary{background:var(--c-accent);color:#1d2430;}
+.btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff;}
+.hero-stats{display:flex;gap:var(--sp-5);margin-top:var(--sp-5);flex-wrap:wrap;}
+.hero-stats div{font-size:var(--fs-xs);color:#9aa5b2;}
+.hero-stats strong{display:block;font-size:1.3rem;color:#f0c96a;font-weight:700;line-height:1.2;}
+.hero-visual{position:relative;display:flex;justify-content:center;}
+.qr-mock{background:#fff;border-radius:var(--r-l);padding:14px;width:212px;box-shadow:0 12px 30px rgba(0,0,0,.28);}
+.qr-mock .qr-grid{display:grid;grid-template-columns:repeat(11,1fr);gap:2px;aspect-ratio:1;}
+.qr-grid i{background:#22303f;border-radius:1px;display:block;}
+.qr-grid i.off{background:transparent;}
+.qr-mock .qr-cap{font-size:var(--fs-xs);color:var(--c-ink-3);text-align:center;margin-top:8px;}
+.qr-scan{position:absolute;left:50%;top:12%;width:80%;height:3px;background:linear-gradient(90deg,transparent,#f0c96a,transparent);animation:scan 3.2s ease-in-out infinite;transform:translateX(-50%);}
+@keyframes scan{0%,100%{top:14%;opacity:.9}50%{top:78%;opacity:.5}}
+
+/* 布局 */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 288px;gap:var(--sp-5);padding:var(--sp-6) 0;}
+.main-col{min-width:0;}
+.side-col{min-width:0;display:flex;flex-direction:column;gap:var(--sp-4);}
+.card{background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--r-m);box-shadow:var(--sh-s);}
+.block{padding:var(--sp-5);margin-bottom:var(--sp-4);}
+.block h2{font-size:var(--fs-h2);margin-bottom:var(--sp-2);}
+.block-sub{font-size:var(--fs-sm);color:var(--c-ink-3);margin-bottom:var(--sp-4);}
+h3{font-size:var(--fs-h3);margin:var(--sp-4) 0 var(--sp-2);}
+
+/* 概览对照 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);margin-top:var(--sp-3);}
+.compare-panel{border:1px solid var(--c-line);border-radius:var(--r-m);padding:var(--sp-4);}
+.compare-panel .tag{font-size:var(--fs-xs);font-weight:700;padding:2px 9px;border-radius:12px;display:inline-block;margin-bottom:var(--sp-2);}
+.tag-ok{background:var(--c-ok-soft);color:var(--c-ok);}
+.tag-warn{background:var(--c-warn-soft);color:var(--c-warn);}
+.compare-panel ul{padding-left:1.1em;margin-bottom:0;font-size:var(--fs-sm);}
+
+/* 频道网格 */
+.channel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3);}
+.channel{display:block;border:1px solid var(--c-line);border-radius:var(--r-m);padding:var(--sp-3) var(--sp-4);background:var(--c-surface);transition:transform .18s,box-shadow .18s;}
+.channel:hover{transform:translateY(-3px);box-shadow:var(--sh-m);}
+.channel strong{display:block;font-size:.95rem;margin-bottom:2px;}
+.channel span{font-size:var(--fs-xs);color:var(--c-ink-3);}
+
+/* 列表 */
+.news-list{list-style:none;padding:0;margin:0;}
+.news-list li{display:flex;gap:var(--sp-3);padding:var(--sp-3) 0;border-bottom:1px dashed var(--c-line);align-items:baseline;}
+.news-list li:last-child{border-bottom:0;}
+.news-list time{font-size:var(--fs-xs);color:var(--c-ink-3);flex-shrink:0;width:74px;font-variant-numeric:tabular-nums;}
+.news-list a{font-size:var(--fs-sm);color:var(--c-ink-2);}
+.news-list a:hover{color:var(--c-accent);}
+
+/* 精选卡片 */
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);}
+.feature-card{overflow:hidden;display:flex;flex-direction:column;}
+.feature-card img{width:100%;height:142px;object-fit:cover;}
+.feature-card .fc-body{padding:var(--sp-3) var(--sp-4) var(--sp-4);}
+.feature-card .fc-meta{font-size:var(--fs-xs);color:var(--c-ink-3);margin-bottom:4px;}
+.feature-card h3{margin:0 0 6px;font-size:.98rem;}
+.feature-card p{font-size:var(--fs-sm);color:var(--c-ink-2);margin-bottom:0;}
+
+/* 深度解析 */
+.deep{border-left:4px solid var(--c-accent);}
+.deep .kicker{font-size:var(--fs-xs);letter-spacing:.12em;color:var(--c-accent);font-weight:700;margin-bottom:var(--sp-2);}
+.deep h2{font-size:1.45rem;}
+.deep h3{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--c-line);}
+.deep p{color:var(--c-ink-2);}
+.quote-card{background:var(--c-accent-soft);border-radius:var(--r-m);padding:var(--sp-4);margin:var(--sp-4) 0;font-size:var(--fs-sm);color:#5a4517;}
+.quote-card cite{display:block;font-style:normal;font-size:var(--fs-xs);color:#8a6c28;margin-top:6px;}
+.data-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm);margin:var(--sp-3) 0;}
+.data-table th,.data-table td{border:1px solid var(--c-line);padding:7px 10px;text-align:left;}
+.data-table th{background:var(--c-bg);font-weight:600;}
+
+/* 步骤 */
+.steps{counter-reset:step;list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);}
+.steps li{counter-increment:step;position:relative;padding:var(--sp-3) var(--sp-3) var(--sp-3) 48px;border:1px solid var(--c-line);border-radius:var(--r-m);font-size:var(--fs-sm);}
+.steps li::before{content:counter(step);position:absolute;left:12px;top:12px;width:24px;height:24px;border-radius:50%;background:var(--c-brand);color:#f0c96a;font-size:.78rem;font-weight:700;display:grid;place-items:center;}
+
+/* FAQ */
+details{border:1px solid var(--c-line);border-radius:var(--r-m);padding:0 var(--sp-4);margin-bottom:var(--sp-2);background:var(--c-surface);}
+details[open]{border-color:#d6bd8a;}
+summary{cursor:pointer;padding:var(--sp-3) 0;font-size:.94rem;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:var(--sp-3);align-items:center;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+";color:var(--c-accent);font-size:1.15rem;font-weight:400;flex-shrink:0;}
+details[open] summary::after{content:"−";}
+details p{font-size:var(--fs-sm);color:var(--c-ink-2);padding-bottom:var(--sp-3);margin:0;}
+
+/* 评论 */
+.comment{display:flex;gap:var(--sp-3);padding:var(--sp-3) 0;border-bottom:1px dashed var(--c-line);}
+.comment:last-child{border-bottom:0;}
+.avatar{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-size:.72rem;font-weight:700;color:#fff;background:var(--c-brand);}
+.comment-body{font-size:var(--fs-sm);}
+.comment-body .cname{font-weight:600;font-size:var(--fs-xs);color:var(--c-ink);}
+.comment-body .ctime{font-size:var(--fs-xs);color:var(--c-ink-3);margin-left:6px;}
+.comment-body p{margin:3px 0 0;color:var(--c-ink-2);}
+
+/* 侧栏 */
+.side-card{padding:var(--sp-4);}
+.side-card h2,.side-card h3{font-size:.98rem;margin-bottom:var(--sp-3);}
+.side-nav a{display:block;font-size:var(--fs-sm);color:var(--c-ink-2);padding:6px 10px;border-radius:var(--r-s);border-left:2px solid transparent;}
+.side-nav a:hover{background:var(--c-bg);}
+.side-nav a.active{background:var(--c-accent-soft);border-left-color:var(--c-accent);color:var(--c-ink);font-weight:600;}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:6px;}
+.tag-cloud a{font-size:var(--fs-xs);padding:3px 10px;border-radius:14px;background:var(--c-bg);border:1px solid var(--c-line);color:var(--c-ink-2);}
+.tag-cloud a:hover{border-color:var(--c-accent);color:var(--c-ink);}
+.rank-list{list-style:none;padding:0;margin:0;counter-reset:rk;}
+.rank-list li{counter-increment:rk;display:flex;gap:10px;padding:7px 0;font-size:var(--fs-sm);align-items:baseline;border-bottom:1px dashed var(--c-line);}
+.rank-list li:last-child{border-bottom:0;}
+.rank-list li::before{content:counter(rk);font-size:var(--fs-xs);font-weight:700;color:#fff;background:var(--c-brand);width:18px;height:18px;border-radius:4px;display:grid;place-items:center;flex-shrink:0;}
+.rank-list li:nth-child(-n+3)::before{background:var(--c-accent);color:#1d2430;}
+.rank-list a{color:var(--c-ink-2);}
+
+/* 时间线 */
+.timeline{list-style:none;padding:0;margin:0;border-left:2px solid var(--c-line);}
+.timeline li{position:relative;padding:0 0 var(--sp-4) var(--sp-5);}
+.timeline li::before{content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--c-accent);border:2px solid #fff;}
+.timeline time{display:block;font-size:var(--fs-xs);color:var(--c-ink-3);font-variant-numeric:tabular-nums;}
+.timeline p{font-size:var(--fs-sm);margin:2px 0 0;color:var(--c-ink-2);}
+
+/* 标签索引 */
+.index-tags{display:flex;flex-wrap:wrap;gap:var(--sp-2);}
+.index-tags a{font-size:var(--fs-sm);padding:5px 14px;border:1px solid var(--c-line);border-radius:18px;background:var(--c-bg);}
+.index-tags a:hover{border-color:var(--c-accent);background:var(--c-accent-soft);}
+
+/* 页尾 */
+.site-footer{background:var(--c-brand);color:#aab3c0;padding:var(--sp-6) 0 var(--sp-4);font-size:var(--fs-sm);margin-top:var(--sp-6);}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--sp-5);margin-bottom:var(--sp-5);}
+.site-footer h3{color:#fff;font-size:.92rem;margin:0 0 var(--sp-3);}
+.site-footer ul{list-style:none;padding:0;margin:0;}
+.site-footer li{margin-bottom:6px;}
+.site-footer a:hover{color:#f0c96a;}
+.footer-brand{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:var(--sp-2);display:flex;gap:8px;align-items:center;}
+.footer-brand svg{width:26px;height:26px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:var(--sp-4);display:flex;justify-content:space-between;gap:var(--sp-3);flex-wrap:wrap;font-size:var(--fs-xs);color:#8993a1;}
+
+/* 回到顶部 */
+.to-top{position:fixed;right:18px;bottom:18px;width:42px;height:42px;border-radius:50%;border:0;background:var(--c-brand);color:#f0c96a;font-size:1.1rem;cursor:pointer;box-shadow:var(--sh-m);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:50;}
+.to-top.show{opacity:1;visibility:visible;}
+
+@media (max-width:960px){
+.layout{grid-template-columns:1fr;}
+.side-col{order:2;}
+.hero .wrap{grid-template-columns:1fr;}
+.hero-visual{display:none;}
+.footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:760px){
+.nav-main{display:none;flex-direction:column;width:100%;padding:var(--sp-2) 0 var(--sp-3);}
+.nav-main.open{display:flex;align-items:stretch;}
+.site-header .wrap{flex-wrap:wrap;gap:var(--sp-2);}
+.menu-btn{display:inline-block;}
+.header-tools{order:3;}
+.search-box input{width:104px;}
+.channel-grid{grid-template-columns:1fr 1fr;}
+.feature-grid{grid-template-columns:1fr;}
+.compare{grid-template-columns:1fr;}
+.steps{grid-template-columns:1fr;}
+.block{padding:var(--sp-4);}
+}
+@media (max-width:420px){
+.channel-grid{grid-template-columns:1fr;}
+.footer-grid{grid-template-columns:1fr;}
+.news-list time{width:auto;}
+.news-list li{flex-direction:column;gap:2px;}
+.hero{padding:var(--sp-6) 0 var(--sp-5);}
+.hero-stats{gap:var(--sp-4);}
+}
+@media (prefers-reduced-motion:reduce){
+html{scroll-behavior:auto;}
+*{animation:none!important;transition:none!important;}
+.channel:hover{transform:none;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-wrap">
+  <div class="notice-bar">
+    <div class="wrap">
+      <span><b>黑料社区登录二维码</b>动态码每 60 秒失效一次，11 月 7 日 22:40 已完成验证服务升级。</span>
+      <time datetime="2026-11-08">2026-11-08 更新</time>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/#top" aria-label="返回顶层">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#22303f"/>
+          <rect x="12" y="12" width="16" height="16" fill="#f0c96a"/>
+          <rect x="36" y="12" width="16" height="16" fill="#f0c96a"/>
+          <rect x="12" y="36" width="16" height="16" fill="#f0c96a"/>
+          <rect x="36" y="36" width="6" height="6" fill="#f0c96a"/>
+          <rect x="46" y="46" width="6" height="6" fill="#f0c96a"/>
+          <rect x="36" y="46" width="6" height="6" fill="#9aa5b2"/>
+        </svg>
+        <span class="brand-text">黑料社区登录二维码</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navMain">导航</button>
+      <nav class="nav-main" id="navMain" aria-label="主题导航">
+        <a href="/#overview">扫码机制</a>
+        <a href="/#channels">频道入口</a>
+        <a href="/#featured">精选爆料</a>
+        <a href="/#latest">更新动态</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">操作指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">社区反馈</a>
+      </nav>
+      <div class="header-tools">
+        <form class="search-box" id="searchForm" role="search" aria-label="站内查找">
+          <input type="search" id="searchInput" placeholder="查频道或话题" aria-label="输入查找关键词">
+          <button type="submit">查找</button>
+        </form>
+      </div>
+    </div>
+    <div class="wrap"><p class="search-status" id="searchStatus" role="status" aria-live="polite"></p></div>
+  </header>
+</div>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap">
+      <div>
+        <span class="hero-badge">扫码登入 · 设备核验 · 2026 年 11 月服务状态</span>
+        <h1 id="heroTitle">黑料社区登录二维码</h1>
+        <p class="hero-lead">把扫码这件事拆开看：二维码从哪里生成、多久失效、换设备为何要二次确认，以及哪些流传的“万能码”其实复用了旧链路。收录 12 个内容频道、48 条本周话题，附可核对的登录流程与异常处理记录。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/#guide">看扫码流程</a>
+          <a class="btn btn-ghost" href="/#deep">读机制分析</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>60<small>s</small></strong>动态码轮换间隔</div>
+          <div><strong>12</strong>内容频道</div>
+          <div><strong>48</strong>本周新增话题</div>
+          <div><strong>3</strong>类常见扫码异常</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="qr-mock">
+          <div class="qr-grid" id="qrGrid"></div>
+          <div class="qr-cap">示意图 · 真实动态码由会话下发</div>
+          <div class="qr-scan"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap layout">
+    <div class="main-col">
+
+      <section class="block card" id="overview" aria-labelledby="overviewTitle">
+        <h2 id="overviewTitle">扫码登入机制概览</h2>
+        <p class="block-sub">同一套入口，扫码与账号密码走的是两条不同的验证链路。下面把差异摊在同一张表上看。</p>
+        <p>社区现行的扫码登录由三部分组成：会话令牌、一次性二维码载荷、设备指纹。用户在已登录设备上生成二维码时，服务端会分配一个有效期 60 秒的载荷，载荷内嵌会话标识与设备指纹哈希。待扫码设备读取成功后，需要已在登录状态的账号在移动端确认，才会下发新的会话。</p>
+        <p>2026 年 10 月 13 日之后，未完成设备指纹采集的会话在扫码确认环节会要求补录一次浏览器环境信息，涉及 UA、时区与屏幕分辨率三项，这也是部分用户在换浏览器后遇到“扫码成功但进不去”的直接原因。</p>
+        <div class="compare">
+          <div class="compare-panel">
+            <span class="tag tag-ok">标准链路</span>
+            <ul>
+              <li>动态码 60 秒失效，过期需重新生成</li>
+              <li>移动端确认后下发新会话</li>
+              <li>记录登录设备与大致地区</li>
+              <li>异常登录触发二次验证</li>
+            </ul>
+          </div>
+          <div class="compare-panel">
+            <span class="tag tag-warn">风险链路</span>
+            <ul>
+              <li>二维码外链被转发到群聊反复使用</li>
+              <li>页面要求填写账号密码“配合验证”</li>
+              <li>扫码后跳转至非社区域名的落地页</li>
+              <li>确认端无法看到待登设备信息</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block card" id="channels" aria-labelledby="channelsTitle">
+        <h2 id="channelsTitle">频道入口：按具体类别找内容</h2>
+        <p class="block-sub">12 个频道覆盖检索频率较高的类别词，点击进入对应话题聚合。</p>
+        <div class="channel-grid">
+          <a class="channel" href="/#deep"><strong>扫码流程解析</strong><span>载荷生成与确认环节</span></a>
+          <a class="channel" href="/#guide"><strong>二维码失效处理</strong><span>过期、重复、跨设备</span></a>
+          <a class="channel" href="/#faq"><strong>设备绑定疑问</strong><span>换手机与多端登录</span></a>
+          <a class="channel" href="/#comments"><strong>账号安全反馈</strong><span>异常登录记录</span></a>
+          <a class="channel" href="/#featured"><strong>社区爆料精选</strong><span>本周高热话题</span></a>
+          <a class="channel" href="/#latest"><strong>平台规则变动</strong><span>验证与风控调整</span></a>
+          <a class="channel" href="/#timeline"><strong>版本时间线</strong><span>10 月以来的改动</span></a>
+          <a class="channel" href="/#comments"><strong>用户体验吐槽</strong><span>扫码卡顿与跳转</span></a>
+          <a class="channel" href="/#ranking"><strong>本周热帖榜</strong><span>按讨论量排序</span></a>
+          <a class="channel" href="/#news"><strong>同类平台对比</strong><span>验证方式差异</span></a>
+          <a class="channel" href="/#featured"><strong>幕后账号追踪</strong><span>搬运号识别</span></a>
+          <a class="channel" href="/#faq"><strong>隐私与留存</strong><span>日志保存周期</span></a>
+        </div>
+      </section>
+
+      <section class="block card" id="featured" aria-labelledby="featuredTitle">
+        <h2 id="featuredTitle">精选内容推荐</h2>
+        <p class="block-sub">四篇本周讨论度较高的内容，主题各自独立。</p>
+        <div class="feature-grid">
+          <article class="feature-card card">
+            <img src="https://picsum.photos/seed/heiliao-qr1/420/240" width="420" height="240" loading="lazy" alt="手机屏幕显示二维码扫描界面">
+            <div class="fc-body">
+              <div class="fc-meta">10-31 · 账号安全</div>
+              <h3>“万能登录码”截图在群聊流传，实测 3 秒内失效</h3>
+              <p>一张标称长期有效的二维码被转发，扫码后返回 401。载荷内时间戳显示生成于 10 月 29 日。</p>
+            </div>
+          </article>
+          <article class="feature-card card">
+            <img src="https://picsum.photos/seed/heiliao-qr2/420/240" width="420" height="240" loading="lazy" alt="两台手机并排放置进行扫码确认">
+            <div class="fc-body">
+              <div class="fc-meta">11-02 · 设备绑定</div>
+              <h3>换新手机后扫码确认端看不到设备名，怎么判断</h3>
+              <p>待登设备名称字段在 10 月 20 日版本改为可折叠显示，需要展开才看到型号与地区。</p>
+            </div>
+          </article>
+          <article class="feature-card card">
+            <img src="https://picsum.photos/seed/heiliao-qr3/420/240" width="420" height="240" loading="lazy" alt="浏览器开发者工具查看网络请求">
+            <div class="fc-body">
+              <div class="fc-meta">11-04 · 技术讨论</div>
+              <h3>扫码接口返回 429，是限流还是账号异常</h3>
+              <p>同一 IP 十分钟内生成超过 20 次动态码会触发限流，与账号状态无关，换账号也复现。</p>
+            </div>
+          </article>
+          <article class="feature-card card">
+            <img src="https://picsum.photos/seed/heiliao-qr4/420/240" width="420" height="240" loading="lazy" alt="笔记本电脑前查看社区帖子列表">
+            <div class="fc-body">
+              <div class="fc-meta">11-06 · 内容观察</div>
+              <h3>搬运号借助“扫码进群”话术导流，评论区集中举报</h3>
+              <p>11 月 5 日一晚收到 37 条举报，涉事账号已限制发言，相关话题页保留讨论。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="block card" id="latest" aria-labelledby="latestTitle">
+        <h2 id="latestTitle">最新更新</h2>
+        <p class="block-sub">按时间倒序，每条对应一个可核对的动作或记录。</p>
+        <ul class="news-list">
+          <li><time datetime="2026-11-08">今天 09:12</time><a href="/#deep">验证服务升级完成后，动态码载荷长度由 32 字节调整为 40 字节</a></li>
+          <li><time datetime="2026-11-07">11-07 22:40</time><a href="/#guide">扫码确认页新增“设备位置”折叠项，默认收起</a></li>
+          <li><time datetime="2026-11-06">11-06 18:05</time><a href="/#comments">话题页恢复因举报下架的 3 条讨论，处理说明附在话题底部</a></li>
+          <li><time datetime="2026-11-05">11-05 11:30</time><a href="/#news">同类平台对比条目补入两家平台的双因子设置</a></li>
+          <li><time datetime="2026-11-03">11-03 14:20</time><a href="/#faq">FAQ 新增“扫码后网页白屏”一条，附排查顺序</a></li>
+          <li><time datetime="2026-11-01">11-01 08:47</time><a href="/#ranking">本周热帖榜权重调整，评论数占比由 30% 降到 20%</a></li>
+          <li><time datetime="2026-10-29">10-29 20:15</time><a href="/#timeline">时间线补入 10 月 13 日设备指纹采集规则</a></li>
+          <li><time datetime="2026-10-25">10-25 16:40</time><a href="/#featured">精选栏目撤下 1 篇涉及未经核实账号的稿件</a></li>
+        </ul>
+      </section>
+
+      <section class="block card deep" id="deep" aria-labelledby="deepTitle">
+        <div class="kicker">深度解析</div>
+        <h2 id="deepTitle">扫码登录的门槛，卡在确认端而不是二维码本身</h2>
+        <p>把近一个月关于扫码进不去的讨论按环节归类，超过六成卡在“确认端”这一步。待扫码设备已经读到二维码，也收到了确认请求，但移动端要么看不到请求，要么点了确认没有反馈。二维码本身出问题的比例反而低得多。</p>
+
+        <h3>案例时间线：11 月 1 日至 11 月 7 日的 42 条反馈</h3>
+        <p>话题聚合页在 11 月 1 日至 7 日共收到 42 条与扫码相关的反馈。按现象初分：二维码过期 9 条、确认端无请求 18 条、确认后跳回登录页 11 条、其他 4 条。确认端无请求的 18 条里，有 13 条集中在 iOS 17.4 及以上系统的浏览器中，安卓端只占 5 条。</p>
+        <table class="data-table">
+          <caption style="caption-side:top;text-align:left;font-size:var(--fs-xs);color:var(--c-ink-3);padding-bottom:4px;">11 月 1—7 日扫码反馈现象分布</caption>
+          <thead><tr><th>现象</th><th>条目数</th><th>占比</th><th>集中环境</th></tr></thead>
+          <tbody>
+            <tr><td>确认端无请求</td><td>18</td><td>42.9%</td><td>iOS 浏览器</td></tr>
+            <tr><td>确认后跳回登录页</td><td>11</td><td>26.2%</td><td>多端登录</td></tr>
+            <tr><td>二维码过期</td><td>9</td><td>21.4%</td><td>页面停留过久</td></tr>
+            <tr><td>其他</td><td>4</td><td>9.5%</td><td>—</td></tr>
+          </tbody>
+        </table>
+
+        <h3>规则前后变化：10 月 13 日与 11 月 7 日两个节点</h3>
+        <p>10 月 13 日起，扫码流程加入设备指纹采集，新增 UA、时区、屏幕分辨率三个字段。11 月 7 日升级后，载荷从 32 字节扩到 40 字节，多了会话签发时间与确认端版本号。两个改动方向一致：让服务端在确认前就能判断待登设备是否值得信任。代价是旧版移动端在 11 月 7 日之后需要更新才能完成确认，这也是“点了没反应”的一个新来源。</p>
+
+        <h3>说法差异：把“二维码不安全”与“扫码链路不安全”分开</h3>
+        <p>社区里常见的说法是“扫码登录容易被盗”。这个判断把两件事混在一起。二维码只是载荷的载体，60 秒失效后截图就失效；真正的风险在确认动作由谁完成。如果确认端本身已被他人控制，任何验证方式都挡不住。因此判断一次扫码是否安全，可核对的结构是四项：载荷生成时间、确认端登录设备列表、待登设备地区、确认后是否出现新的登录记录。四项中有任意一项对不上，就该暂停。</p>
+        <div class="quote-card">
+          “10 月 31 日那张所谓万能码，我拿去扫，返回 401，载荷时间戳是 29 号。转发的人自己都没试过。”
+          <cite>— 话题页用户 @ke_zhou_88，11-01 09:16 评论</cite>
+        </div>
+
+        <h3>可核对清单：一次扫码登录该留下哪些痕迹</h3>
+        <ul>
+          <li>动态码生成时间与扫码时间差，超过 60 秒即失效</li>
+          <li>确认端显示的待登设备型号，与手中设备是否一致</li>
+          <li>待登设备大致地区，与本人所在地是否一致</li>
+          <li>确认后账号登录记录新增的一条，时间是否吻合</li>
+        </ul>
+        <p>这四项记录在账号的登录设备页均可查看，保存周期为 90 天。若某项缺失，优先检查是否在第三方页面完成过“配合验证”，而不是继续尝试重新扫码。</p>
+      </section>
+
+      <section class="block card" id="guide" aria-labelledby="guideTitle">
+        <h2 id="guideTitle">体验指南：从生成到确认的五步</h2>
+        <p class="block-sub">按顺序操作，每步都给出可观察的反馈点。</p>
+        <ol class="steps">
+          <li>在已登录设备打开登录页，点击生成动态码，留意页面上显示的倒计时。</li>
+          <li>用待登设备扫描，页面应立即出现待登设备型号，看不到就停下检查版本。</li>
+          <li>回到已登录设备，在确认弹窗核对型号与地区，两项都一致再点确认。</li>
+          <li>确认后留意跳转地址是否为社区域名，非社区域名立即关闭并修改密码。</li>
+          <li>进入账号的登录设备页，确认新增记录的时间与刚才操作吻合。</li>
+        </ol>
+        <p style="margin-top:var(--sp-3);font-size:var(--fs-sm);color:var(--c-ink-3);">11 月 7 日升级后，第三步的确认弹窗新增了设备位置折叠项，点开才能看到地区；这一步不点开就确认，是近期反馈里出现较多的遗漏。</p>
+      </section>
+
+      <section class="block card" id="timeline" aria-labelledby="timelineTitle">
+        <h2 id="timelineTitle">近期版本时间线</h2>
+        <p class="block-sub">只列有明确日期与动作的改动，推测内容单独标注。</p>
+        <ul class="timeline">
+          <li><time datetime="2026-11-08">2026-11-08</time><p>验证服务升级完成，动态码载荷 32 字节改 40 字节，新增签发时间字段。</p></li>
+          <li><time datetime="2026-11-07">2026-11-07</time><p>确认页增加设备位置折叠项，旧版移动端被要求更新后才能完成确认。</p></li>
+          <li><time datetime="2026-10-13">2026-10-13</time><p>扫码流程加入设备指纹采集，UA、时区、屏幕分辨率三项。</p></li>
+          <li><time datetime="2026-10-05">2026-10-05</time><p>同一 IP 十分钟内生成动态码超过 20 次触发限流，返回 429。</p></li>
+        </ul>
+      </section>
+
+      <section class="block card" id="ranking" aria-labelledby="rankingTitle">
+        <h2 id="rankingTitle">可信度分层与热帖榜</h2>
+        <p class="block-sub">按信息可核对程度分层，榜单依据讨论量与举报处理记录。</p>
+        <h3 style="margin-top:0;">信息分层</h3>
+        <div class="compare">
+          <div class="compare-panel">
+            <span class="tag tag-ok">可核对</span>
+            <ul>
+              <li>带时间戳的接口返回截图</li>
+              <li>账号登录设备页记录</li>
+              <li>版本更新说明与日期</li>
+            </ul>
+          </div>
+          <div class="compare-panel">
+            <span class="tag tag-warn">待核实</span>
+            <ul>
+              <li>群聊转发的“内部截图”</li>
+              <li>无账号名的单方面叙述</li>
+              <li>未标注生成时间的二维码图片</li>
+            </ul>
+          </div>
+        </div>
+        <h3>本周热帖榜</h3>
+        <ol class="rank-list" style="counter-reset:rk;">
+          <li><a href="/#featured">万能登录码截图流传，实测 3 秒失效</a></li>
+          <li><a href="/#featured">换新手机后确认端看不到设备名</a></li>
+          <li><a href="/#featured">扫码接口返回 429 的判定方法</a></li>
+          <li><a href="/#comments">搬运号借扫码话术导流被举报</a></li>
+          <li><a href="/#deep">确认端无请求的机型分布统计</a></li>
+        </ol>
+      </section>
+
+      <section class="block card" id="news" aria-labelledby="newsTitle">
+        <h2 id="newsTitle">相关资讯</h2>
+        <ul class="news-list">
+          <li><time datetime="2026-11-06">11-06</time><a href="/#deep">同类社区双因子验证占比统计，扫码+短信为常见组合</a></li>
+          <li><time datetime="2026-11-04">11-04</time><a href="/#guide">浏览器隐私模式对设备指纹采集的影响，三项字段会缺失</a></li>
+          <li><time datetime="2026-11-02">11-02</time><a href="/#faq">账号登录设备页保存周期为 90 天，过期记录不可恢复</a></li>
+          <li><time datetime="2026-10-30">10-30</time><a href="/#comments">话题页举报入口位置调整，处理进度可在个人中心查看</a></li>
+          <li><time datetime="2026-10-27">10-27</time><a href="/#ranking">可信度分层首次引入举报处理记录作为权重</a></li>
+        </ul>
+      </section>
+
+      <section class="block card" id="faq" aria-labelledby="faqTitle">
+        <h2 id="faqTitle">常见问题</h2>
+
+        <details>
+          <summary>扫码后移动端收不到确认请求，先排查什么？</summary>
+          <p>先看移动端版本是否为 11 月 7 日之后的版本，旧版无法处理新增的 40 字节载荷。再看系统通知权限是否被关闭，确认请求走的是应用内推送。两者都正常，再检查待登设备是否连在与移动端不同的网络环境，跨网段时请求可能延迟。42 条反馈中有 13 条集中在 iOS 浏览器，与该系统对后台推送的限制有关。</p>
+        </details>
+        <details>
+          <summary>二维码过期了还能继续用吗？</summary>
+          <p>不能。动态码有效期 60 秒，过期后载荷中的会话标识失效，继续扫描只会返回 401。重新生成即可，无需修改密码。若连续三次生成都在 60 秒内被判定过期，先检查设备时间是否准确，时间偏差超过 2 分钟会直接导致校验失败。</p>
+        </details>
+        <details>
+          <summary>换手机后扫码登录，为什么总是跳回登录页？</summary>
+          <p>大概率是设备指纹缺失。10 月 13 日起扫码流程需要采集 UA、时区、屏幕分辨率三项，新设备首次登录若在隐私模式或限制性浏览器中操作，字段采集不全会导致确认后会话无法建立。换用普通窗口重试，通常一次通过。</p>
+        </details>
+        <details>
+          <summary>群聊里转发的登录二维码可以用吗？</summary>
+          <p>不建议使用。二维码只是载荷载体，转发后生成时间已不可知，也无法确认该码对应的会话属于谁。若扫描后页面要求输入账号密码，应立即关闭。账号的登录设备页可以核对是否有非本人记录，发现异常先改密码再逐条确认设备。</p>
+        </details>
+        <details>
+          <summary>扫码接口返回 429 是账号被封了吗？</summary>
+          <p>不是。429 表示同一 IP 十分钟内生成动态码超过 20 次触发限流，与账号状态无关。等待十分钟或更换网络后重试即可。若更换账号仍然复现，说明限流基于 IP 而非账号，需要换出口网络。</p>
+        </details>
+        <details>
+          <summary>登录记录保存多久，能主动删除吗？</summary>
+          <p>保存 90 天，过期记录不可恢复。用户可以在设备页移除当前未使用的设备授权，但已生成的登录记录本身不会被删除，仅标记为已退出。需要彻底清理时，修改密码会让所有会话失效，随后新的登录记录重新开始累计。</p>
+        </details>
+      </section>
+
+      <section class="block card" id="comments" aria-labelledby="commentsTitle">
+        <h2 id="commentsTitle">用户评论</h2>
+        <p class="block-sub">语气未经统一润色，保留原样，含中性甚至负面反馈。</p>
+        <div class="comment">
+          <div class="avatar" aria-hidden="true">KZ</div>
+          <div class="comment-body">
+            <span class="cname">ke_zhou_88</span><span class="ctime">11-01 09:16</span>
+            <p>那张所谓万能码我扫了，直接 401，载荷时间戳显示 10 月 29 日。转发的人自己都没试过。</p>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar" aria-hidden="true">LM</div>
+          <div class="comment-body">
+            <span class="cname">lin_mu_2025</span><span class="ctime">11-02 21:03</span>
+            <p>换新手机折腾了半小时，一直跳回登录页。最后发现是浏览器开了无痕模式。</p>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar" aria-hidden="true">DD</div>
+          <div class="comment-body">
+            <span class="cname">da_dong</span><span class="ctime">11-03 10:41</span>
+            <p>确认页那个设备位置默认折叠，确实容易漏。第一次点确认没看地区，后来才发现显示的是外地。</p>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar" aria-hidden="true">QS</div>
+          <div class="comment-body">
+            <span class="cname">qingshan_7</span><span class="ctime">11-04 15:28</span>
+            <p>429 那个我复现了，换账号没用，换网络就正常。限流按 IP 来的，跟账号没关系。</p>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar" aria-hidden="true">YZ</div>
+          <div class="comment-body">
+            <span class="cname">yue_zhang</span><span class="ctime">11-05 19:52</span>
+            <p>搬运号那事处理得还算快，举报完当晚就限制发言了。不过话题页底下还有几条引流的没清干净。</p>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="avatar" aria-hidden="true">HT</div>
+          <div class="comment-body">
+            <span class="cname">he_tang</span><span class="ctime">11-06 08:17</span>
+            <p>说实话扫码流程比密码登录还麻烦，尤其确认端收不到请求的时候，一点提示都没有，只能干等。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block card" id="recommend" aria-labelledby="recommendTitle">
+        <h2 id="recommendTitle">相关推荐</h2>
+        <p class="block-sub">按检索习惯列出的具体词，点选进入对应话题。</p>
+        <div class="index-tags">
+          <a href="/#deep">扫码登录确认端无响应</a>
+          <a href="/#guide">动态码60秒失效原因</a>
+          <a href="/#faq">换手机扫码跳回登录页</a>
+          <a href="/#deep">设备指纹采集三项字段</a>
+          <a href="/#news">同类社区双因子验证</a>
+          <a href="/#faq">扫码接口429限流</a>
+          <a href="/#comments">登录设备页90天记录</a>
+          <a href="/#ranking">热帖可信度分层</a>
+          <a href="/#featured">搬运号扫码导流举报</a>
+          <a href="/#timeline">11月7日验证升级</a>
+        </div>
+      </section>
+
+      <section class="block card" id="creator" aria-labelledby="creatorTitle">
+        <h2 id="creatorTitle">频道维护者说</h2>
+        <p>账号安全频道的 4 位维护者里，有 3 位在 10 月 13 日版本上线后重新核对了扫码流程的每一个提示文案。其中一位在 11 月 2 日提出把“设备位置”从默认展开改为可折叠，理由是长列表在手机上过于拥挤；另一位的反对意见是折叠会让人漏看。最终按折叠上线，但确认按钮旁增加了一行小字提示地区字段的位置。</p>
+        <p>11 月 5 日处理搬运号举报时，维护者采用的处理方式是限制发言而非直接封禁，给出 7 天的观察期，理由是相关账号的历史发言里仍有正常讨论记录。这个处理尺度在评论区有争议，但保留处理说明便于追溯。</p>
+      </section>
+
+      <section class="block card" id="concepts" aria-labelledby="conceptsTitle">
+        <h2 id="conceptsTitle">补充概念：几个容易混淆的词</h2>
+        <ul>
+          <li><strong>载荷</strong>：二维码里编码的那串数据，含会话标识与时间戳，不是图片本身。</li>
+          <li><strong>确认端</strong>：已在登录状态、负责点“确认”的那台设备，通常是手机。</li>
+          <li><strong>待登设备</strong>：扫码的那台设备，可能是另一台手机或电脑。</li>
+          <li><strong>设备指纹</strong>：UA、时区、屏幕分辨率等字段的组合，用于区分设备而非识别个人。</li>
+          <li><strong>会话令牌</strong>：确认完成后下发的凭证，后续请求凭它识别登录状态。</li>
+        </ul>
+        <p>这几个词在讨论里经常被互相替换，导致对同一现象的判断分歧。例如“二维码失效”实际指载荷过期，“登录失效”则可能指会话令牌被清除，两者处理方式不同。</p>
+      </section>
+
+    </div>
+
+    <aside class="side-col" aria-label="侧栏导航与索引">
+      <nav class="card side-card side-nav" id="sideNav" aria-label="滚动导航">
+        <h3 style="margin-top:0;">栏目导航</h3>
+        <a href="/#overview">扫码机制概览</a>
+        <a href="/#channels">频道入口</a>
+        <a href="/#featured">精选内容推荐</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#timeline">版本时间线</a>
+        <a href="/#ranking">可信度分层</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">用户评论</a>
+        <a href="/#recommend">相关推荐</a>
+      </nav>
+      <div class="card side-card">
+        <h3 style="margin-top:0;">检索热词</h3>
+        <div class="tag-cloud">
+          <a href="/#guide">动态码失效</a>
+          <a href="/#faq">确认端无请求</a>
+          <a href="/#deep">设备指纹</a>
+          <a href="/#comments">429限流</a>
+          <a href="/#ranking">可信度分层</a>
+          <a href="/#timeline">验证升级</a>
+          <a href="/#faq">登录记录90天</a>
+        </div>
+      </div>
+      <div class="card side-card">
+        <h3 style="margin-top:0;">本周热帖</h3>
+        <ol class="rank-list">
+          <li><a href="/#featured">万能码截图实测失效</a></li>
+          <li><a href="/#featured">换机后确认端看不到设备</a></li>
+          <li><a href="/#featured">接口429判定方法</a></li>
+          <li><a href="/#comments">搬运号导流被举报</a></li>
+        </ol>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#f0c96a"/>
+            <rect x="12" y="12" width="16" height="16" fill="#22303f"/>
+            <rect x="36" y="12" width="16" height="16" fill="#22303f"/>
+            <rect x="12" y="36" width="16" height="16" fill="#22303f"/>
+            <rect x="36" y="36" width="6" height="6" fill="#22303f"/>
+            <rect x="46" y="46" width="6" height="6" fill="#22303f"/>
+          </svg>
+          黑料社区登录二维码
+        </div>
+        <p style="margin-bottom:8px;">拆解扫码背后的一次性载荷与设备核验环节，收录可核对的流程记录与社区反馈。</p>
+      </div>
+      <div>
+        <h3>内容频道</h3>
+        <ul>
+          <li><a href="/#channels">扫码流程解析</a></li>
+          <li><a href="/#channels">二维码失效处理</a></li>
+          <li><a href="/#channels">设备绑定疑问</a></li>
+          <li><a href="/#channels">账号安全反馈</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>话题栏目</h3>
+        <ul>
+          <li><a href="/#featured">精选爆料</a></li>
+          <li><a href="/#latest">更新动态</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#timeline">版本时间线</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>参与与说明</h3>
+        <ul>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#recommend">相关推荐</a></li>
+          <li><a href="/#concepts">概念说明</a></li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:var(--fs-xs);color:#8993a1;margin-bottom:var(--sp-3);">页面所列条目、评论与统计均为示例生成内容，用于演示信息组织方式；账号、频道与处理记录不代表真实个体。更新时间 2026-11-08，对应正文“最新更新”中的 8 条记录与“近期版本时间线”的 4 个节点。</p>
+    <div class="footer-bottom">
+      <span>© 2026 内容示例站点 · 页面结构与文案用于展示用途</span>
+      <span>内容仅作信息整理参考，不构成账号安全承诺</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  // 生成示意二维码图案
+  var grid=document.getElementById('qrGrid');
+  if(grid){
+    var pattern=[1,1,1,1,1,1,1,0,1,1,1,
+                 1,0,0,0,0,0,1,0,0,1,0,
+                 1,0,1,1,1,0,1,0,1,1,0,
+                 1,0,1,1,1,0,1,0,0,1,1,
+                 1,0,0,0,0,0,1,0,0,1,0,
+                 1,1,1,0,1,1,1,0,1,1,1,
+                 0,0,0,0,0,0,0,0,0,1,0,
+                 1,0,1,1,0,0,1,1,0,0,1,
+                 1,1,0,1,1,1,0,0,1,1,0,
+                 0,1,1,0,0,1,1,0,0,1,1,
+                 1,1,0,1,0,1,0,1,1,0,1];
+    var html='';
+    for(var i=0;i<pattern.length;i++){
+      html+='<i'+(pattern[i]?'':' class="off"')+'></i>';
+    }
+    grid.innerHTML=html;
+  }
+
+  // 移动端菜单
+  var menuBtn=document.getElementById('menuBtn');
+  var navMain=document.getElementById('navMain');
+  if(menuBtn&&navMain){
+    menuBtn.addEventListener('click',function(){
+      var open=navMain.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    navMain.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&window.innerWidth<=760){
+        navMain.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  // 本地查找
+  var searchForm=document.getElementById('searchForm');
+  var searchInput=document.getElementById('searchInput');
+  var searchStatus=document.getElementById('searchStatus');
+  if(searchForm){
+    searchForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var q=(searchInput.value||'').trim();
+      if(!q){searchStatus.textContent='';searchStatus.classList.remove('show');return;}
+      var targets=document.querySelectorAll('a, summary, h3');
+      var hit=null;
+      for(var i=0;i<targets.length;i++){
+        var t=(targets[i].textContent||'').trim();
+        if(t.indexOf(q)>-1){
+          if(targets[i].tagName==='SUMMARY'){
+            var d=targets[i].closest('details');
+            if(d){d.open=true;hit=d;}
+          }else{
+            hit=targets[i];
+          }
+          break;
+        }
+      }
+      if(hit){
+        searchStatus.textContent='已定位到包含“'+q+'”的内容。';
+        searchStatus.classList.add('show');
+        var y=hit.getBoundingClientRect().top+window.pageYOffset-120;
+        window.scrollTo({top:y,behavior:'smooth'});
+        if(hit.tagName==='H3'||hit.tagName==='SUMMARY'){hit.setAttribute('tabindex','-1');hit.focus({preventScroll:true});}
+      }else{
+        searchStatus.textContent='没有找到“'+q+'”相关条目，可改用“扫码”“失效”“确认端”等词。';
+        searchStatus.classList.add('show');
+      }
+    });
+  }
+
+  // 滚动高亮 + 回到顶部
+  var sideLinks=document.querySelectorAll('#sideNav a');
+  var sections=[];
+  sideLinks.forEach(function(a){
+    var id=a.getAttribute('href').replace('/#','');
+    var el=document.getElementById(id);
+    if(el){sections.push({id:id,el:el,link:a});}
+  });
+  var toTop=document.getElementById('toTop');
+  function onScroll(){
+    var y=window.pageYOffset+140;
+    var current=null;
+    for(var i=0;i<sections.length;i++){
+      if(sections[i].el.offsetTop<=y){current=sections[i];}
+    }
+    sideLinks.forEach(function(a){a.classList.remove('active');});
+    if(current){current.link.classList.add('active');}
+    if(toTop){
+      if(window.pageYOffset>420){toTop.classList.add('show');}
+      else{toTop.classList.remove('show');}
+    }
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  if(toTop){
+    toTop.addEventListener('click',function(){
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"黑料社区登录二维码",
+  "description":"围绕扫码登录流程、动态码失效、设备绑定与账号安全的静态信息页，收录频道入口、常见问题与用户反馈。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"扫码后移动端收不到确认请求，先排查什么？","acceptedAnswer":{"@type":"Answer","text":"先确认移动端版本为 11 月 7 日之后，旧版无法处理新增的 40 字节载荷；再检查系统通知权限；最后确认待登设备与移动端是否处于不同网络环境。"}},
+    {"@type":"Question","name":"二维码过期了还能继续用吗？","acceptedAnswer":{"@type":"Answer","text":"不能。动态码有效期 60 秒，过期后载荷中的会话标识失效，继续扫描会返回 401，需要重新生成。"}},
+    {"@type":"Question","name":"换手机后扫码登录，为什么总是跳回登录页？","acceptedAnswer":{"@type":"Answer","text":"多为设备指纹缺失。10 月 13 日起需采集 UA、时区、屏幕分辨率三项，新设备在隐私模式或限制性浏览器中操作会采集不全，换普通窗口重试通常可解决。"}},
+    {"@type":"Question","name":"群聊里转发的登录二维码可以用吗？","acceptedAnswer":{"@type":"Answer","text":"不建议。转发后生成时间不可知，也无法确认会话归属；若要求输入账号密码，应立即关闭并核对登录设备记录。"}},
+    {"@type":"Question","name":"扫码接口返回 429 是账号被封了吗？","acceptedAnswer":{"@type":"Answer","text":"不是。429 表示同一 IP 十分钟内生成动态码超过 20 次触发限流，与账号状态无关，等待或更换网络即可。"}},
+    {"@type":"Question","name":"登录记录保存多久，能主动删除吗？","acceptedAnswer":{"@type":"Answer","text":"保存 90 天，过期不可恢复。可以移除未使用设备的授权，但记录本身不会被删除；修改密码会使所有会话失效。"}}
+  ]
+}
+</script>
+</body>
+  </html>
